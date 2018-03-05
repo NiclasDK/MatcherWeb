@@ -1,0 +1,142 @@
+﻿body {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/*global*/
+.container {
+    width:80%;
+    margin:auto;
+    overflow:hidden;
+
+}
+
+.button_1 {
+    height: 38px;
+    background: #0094ff;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    border-radius: 35px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*Header*/
+header {
+    background: #2b3162;
+    color: white;
+    padding-top:30px;
+    min-height: 70px;
+    border-bottom: #0094ff;
+}
+
+    header a{
+        color: white;
+        text-decoration:none;
+        text-transform:uppercase;
+        font-size:16px;
+    }
+
+    header li {
+        float:left;
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header #branding {
+        float:left;
+    }
+
+    header #branding h1{
+        margin:0;
+    }
+
+    header nav{
+        float:right;
+        margin-top: 10px;
+    }
+
+    /*Showcase*/
+#showcase {
+    min-height: 400px;
+    background-size:400px 600px;
+    background:url('Building.png') no-repeat 0 -400px ;
+    text-align:center;
+    color:white;
+}
+
+#showcase h1{
+    margin-top:100px;
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+#showcase p{
+    font-size:20px;
+}
+
+/*registration*/
+
+#registration {
+    text-align: center;
+    padding: 15px;
+    color: white;
+    background: #2b3162;
+}
+
+    #registration h1 {
+        float:inherit;
+        text-align: center;
+    }
+
+    #registration form {
+        padding: 20px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    #registration input {
+        border-radius: 15px;
+        text-align:center;
+    }
+
+    #registration input[type="Name"] {
+        padding: 4px;
+        height: 25px;
+        width: 250px;
+    }
+
+    /*Boxes*/
+#boxes {
+    margin-top:20px;
+}
+
+    #boxes .box {
+        float: left;
+        text-align: center;
+        width: 30%;
+        padding: 10px;
+    }
+
+    #boxes .box img {
+        width:90px;
+    }
+
+/*Footer*/
+
+footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #0094ff;
+    text-align: center;
+}

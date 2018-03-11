@@ -12,7 +12,7 @@
     width:80%;
     margin:auto;
     overflow:hidden;
-
+    text-align: center;
 }
 
 .button_1 {
@@ -121,8 +121,6 @@ header {
 }
 
     #boxes .box {
-        float: left;
-        text-align: center;
         width: 30%;
         padding: 10px;
     }
@@ -139,4 +137,10 @@ footer {
     color: #ffffff;
     background-color: #0094ff;
     text-align: center;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+    text-align:center;
 }

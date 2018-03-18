@@ -52,6 +52,10 @@
         cursor: pointer;
     }
 
+    input {
+        border-radius: 5px;
+    }
+
 </style>
 <body>
 
@@ -65,8 +69,7 @@
             <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-phone"></i> ABOUT</a>
             <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
             <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-            <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-user"></i>LOGIN</a>
-
+            <a href="login" class="w3-bar-item w3-button"><i class="fa fa-user"></i>LOGIN</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
                 <i class="fa fa-search"></i>
             </a>
@@ -85,6 +88,21 @@
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
         <div class="w3-display-middle" style="white-space:nowrap;">
             <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">IT Matcher</span> 
+        </div>
+    </div>
+
+    <div class=" w3-container w3-dark-grey" id="registration">
+        <div class="w3-center">
+            <h3 class="w3-center">Register</h3>
+            <form method="post">
+                email:<br>
+                <input type="email" name="email"><br>
+                password:<br>
+                <input type="password" name="password"><br>
+                <button class="w3-button w3-black w3-section" type="submit">
+                    <i class="fa fa-user"></i>Create user
+                </button>
+            </form>
         </div>
     </div>
 

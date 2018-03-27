@@ -11,14 +11,15 @@ namespace ITMatcherWeb.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public Boolean Available = true;
-        public Boolean ActivelySeeking = true;
-        public Boolean AcceptedUseOfData = false;
-        public int ExpectedHourlySalary;
-        public Boolean Gender;
-        public DateTime DateOfBirth;
-        public String FirstName;
-        public string LastName;
+
+        public Boolean Available { get; set; }
+        public Boolean ActivelySeeking { get; set; }
+        public Boolean AcceptedUseOfData { get; set; }
+        public int ExpectedHourlySalary { get; set;}
+        public Boolean Gender { get; set;}
+        public DateTime DateOfBirth { get; set; }
+        public String FirstName { get; set; }
+        public string LastName { get; set; }
         public List<JobExperience> JobExperiences = new List<JobExperience>();
         public List<Language> languages = new List<Language>();
         public List<Certificate> certificates = new List<Certificate>();
@@ -36,8 +37,9 @@ namespace ITMatcherWeb.Models
     {
 
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
+            //: base("DefaultConnection", throwIfV1Schema: false)
         }
 
         public static ApplicationDbContext Create()

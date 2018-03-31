@@ -202,8 +202,11 @@
     </Compile>
     <Compile Include="DataContext\BulletinMigrations\Configuration.cs" />
     <Compile Include="DataContext\CertificateDb.cs" />
+    <Compile Include="DataContext\CertificateMigrations\Configuration.cs" />
     <Compile Include="DataContext\IdentityDb.cs" />
     <Compile Include="DataContext\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContext\JobExperienceMigrations\Configuration.cs" />
+    <Compile Include="DataContext\LanguageMigrations\Configuration.cs" />
     <Compile Include="DataContext\SubjectDb.cs" />
     <Compile Include="DataContext\JobExperienceDb.cs" />
     <Compile Include="DataContext\LanguageDb.cs" />

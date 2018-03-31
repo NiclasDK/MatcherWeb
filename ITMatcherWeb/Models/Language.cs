@@ -2,7 +2,7 @@
 {
     public class Language
     {
-        public string Id { get; set; }
+        public string LanguageId { get; set; }
         public string Name { get; set; }
         public LanguageMastery Mastery { get; set; }
 
@@ -17,4 +17,6 @@
         Excellent,
         native,
     }
+
+
 }

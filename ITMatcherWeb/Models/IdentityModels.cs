@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -20,9 +21,10 @@ namespace ITMatcherWeb.Models
         public DateTime? DateOfBirth { get; set; }
         public String FirstName { get; set; }
         public string LastName { get; set; }
-        public DbSet<JobExperience> JobExperiences { get; set; }
-        public DbSet<Language> languages { get; set; }
-        public DbSet<Certificate> certificates { get; set; }
+
+        public virtual DbSet<JobExperience> JobExperiences { get; set; }
+        public virtual DbSet<Language> languages { get; set; }
+        public virtual DbSet<Certificate> certificates { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

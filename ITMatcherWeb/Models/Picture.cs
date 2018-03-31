@@ -1,8 +1,11 @@
-﻿namespace ITMatcherWeb.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ITMatcherWeb.Models
 {
     public class Picture
     {
-        string PictureId { get; set; }
-        string PicturePath { get; set; }
+        [Key]
+        public string PictureId { get; set; }
+        public string PicturePath { get; set; }
     }
 }

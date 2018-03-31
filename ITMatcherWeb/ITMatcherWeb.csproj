@@ -192,7 +192,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BulletinsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobExperiencesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="DataContext\BulletinDb.cs" />
@@ -200,17 +202,27 @@
     <Compile Include="DataContext\BulletinMigrations\201803311208401_InitialCreate1.Designer.cs">
       <DependentUpon>201803311208401_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\BulletinMigrations\201803311751498_InitialCreate.cs" />
+    <Compile Include="DataContext\BulletinMigrations\201803311751498_InitialCreate.Designer.cs">
+      <DependentUpon>201803311751498_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\BulletinMigrations\Configuration.cs" />
     <Compile Include="DataContext\CertificateDb.cs" />
     <Compile Include="DataContext\CertificateMigrations\Configuration.cs" />
     <Compile Include="DataContext\IdentityDb.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201803311715214_InitialCreate.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201803311715214_InitialCreate.Designer.cs">
+      <DependentUpon>201803311715214_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\IdentityMigrations\Configuration.cs" />
     <Compile Include="DataContext\JobExperienceMigrations\Configuration.cs" />
     <Compile Include="DataContext\LanguageMigrations\Configuration.cs" />
+    <Compile Include="DataContext\PictureMigrations\Configuration.cs" />
     <Compile Include="DataContext\SubjectDb.cs" />
     <Compile Include="DataContext\JobExperienceDb.cs" />
     <Compile Include="DataContext\LanguageDb.cs" />
     <Compile Include="DataContext\PictureDb.cs" />
+    <Compile Include="DataContext\SubjectMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -293,6 +305,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Profile\profilePage.cshtml" />
+    <Content Include="Views\JobExperiences\Create.cshtml" />
+    <Content Include="Views\JobExperiences\Delete.cshtml" />
+    <Content Include="Views\JobExperiences\Details.cshtml" />
+    <Content Include="Views\JobExperiences\Edit.cshtml" />
+    <Content Include="Views\JobExperiences\Index.cshtml" />
+    <Content Include="Views\Bulletins\Create.cshtml" />
+    <Content Include="Views\Bulletins\Delete.cshtml" />
+    <Content Include="Views\Bulletins\Details.cshtml" />
+    <Content Include="Views\Bulletins\Edit.cshtml" />
+    <Content Include="Views\Bulletins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +338,12 @@
   <ItemGroup>
     <EmbeddedResource Include="DataContext\BulletinMigrations\201803311208401_InitialCreate1.resx">
       <DependentUpon>201803311208401_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\BulletinMigrations\201803311751498_InitialCreate.resx">
+      <DependentUpon>201803311751498_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\IdentityMigrations\201803311715214_InitialCreate.resx">
+      <DependentUpon>201803311715214_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

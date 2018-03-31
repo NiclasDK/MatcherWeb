@@ -12,5 +12,7 @@ namespace ITMatcherWeb.DataContext
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<ITMatcherWeb.Models.JobExperience> JobExperiences { get; set; }
     }
 }

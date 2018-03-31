@@ -17,7 +17,6 @@ namespace ITMatcherWeb.DataContext
         public IdentityDb()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            base.OnModelCreating(modelBuilder);
 
         }
 

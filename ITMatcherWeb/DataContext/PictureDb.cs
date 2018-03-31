@@ -7,15 +7,14 @@ using System.Web;
 
 namespace ITMatcherWeb.DataContext
 {
-    public class BulletinDb : DbContext
+    public class PictureDb : DbContext
     {
 
-        public DbSet<Bulletin> Bulletins { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
 
-        public BulletinDb()
+        public PictureDb()
             : base("DefaultConnection")
         {
         }
-
     }
 }

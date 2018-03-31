@@ -1,18 +1,19 @@
-namespace ITMatcherWeb.Migrations
+namespace ITMatcherWeb.DataContext.BulletinMigrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.DataContext.IdentityDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.DataContext.BulletinDb>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"DataContext\BulletinMigrations";
         }
 
-        protected override void Seed(ITMatcherWeb.DataContext.IdentityDb context)
+        protected override void Seed(ITMatcherWeb.DataContext.BulletinDb context)
         {
             //  This method will be called after migrating to the latest version.
 

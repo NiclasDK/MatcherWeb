@@ -5,17 +5,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace ITMatcherWeb.DataContext
+namespace ITMatcherWeb.DataContext.IdentityMigrations
 {
-    public class BulletinDb : DbContext
+    public class SubjectDb : DbContext
     {
 
-        public DbSet<Bulletin> Bulletins { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
 
-        public BulletinDb()
+        public SubjectDb()
             : base("DefaultConnection")
         {
         }
-
     }
 }

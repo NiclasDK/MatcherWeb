@@ -2,12 +2,15 @@
 {
     public class Language
     {
-        string Id;
-        string name;
-        LanguageMastery mastery;
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public LanguageMastery Mastery { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+        public string ApplicationUserId  { get; set; }
     }
 
-    internal enum LanguageMastery
+    public enum LanguageMastery
     {
         Basic,
         Good,

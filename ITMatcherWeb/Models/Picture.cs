@@ -2,7 +2,7 @@
 {
     public class Picture
     {
-        string PictureId;
-        string PicturePath;
+        string PictureId { get; set; }
+        string PicturePath { get; set; }
     }
 }

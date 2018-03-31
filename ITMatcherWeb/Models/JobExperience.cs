@@ -7,10 +7,10 @@ namespace ITMatcherWeb.Models
 {
     public class JobExperience
     {
-        String Id { get; set; }
-        string Employer { get; set; }
-        DateTime DateOfEmployment { get; set; }
-        DateTime DateOfExit { get; set; }
-        List<Subject> Subjects { get; set; }
+        public string Id { get; set; }
+        public string Employer { get; set; }
+        public DateTime? DateOfEmployment { get; set; }
+        public DateTime? DateOfExit { get; set; }
+        public List<Subject> Subjects { get; set; }
     }
 }

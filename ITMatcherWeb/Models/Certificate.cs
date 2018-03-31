@@ -1,8 +1,11 @@
-﻿namespace ITMatcherWeb.Models
+﻿using System;
+
+namespace ITMatcherWeb.Models
 {
     public class Certificate
     {
-        string CertificateId;
-        string Name;
+        public string CertificateId { get; set; }
+        public DateTime? DateOfCertification { get; set; }
+        public string Name { get; set; }
     }
 }

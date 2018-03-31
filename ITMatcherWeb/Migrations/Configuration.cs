@@ -5,14 +5,14 @@ namespace ITMatcherWeb.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.DataContext.IdentityDb>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(ITMatcherWeb.Models.ApplicationDbContext context)
+        protected override void Seed(ITMatcherWeb.DataContext.IdentityDb context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -17,12 +17,13 @@ namespace ITMatcherWeb.Models
         public Boolean AcceptedUseOfData { get; set; }
         public int ExpectedHourlySalary { get; set;}
         public Boolean Gender { get; set;}
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public String FirstName { get; set; }
         public string LastName { get; set; }
-        public List<JobExperience> JobExperiences = new List<JobExperience>();
-        public List<Language> languages = new List<Language>();
-        public List<Certificate> certificates = new List<Certificate>();
+        public DbSet<JobExperience> JobExperiences { get; set; }
+        public DbSet<Language> languages { get; set; }
+        public DbSet<Certificate> certificates { get; set; }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -33,18 +34,4 @@ namespace ITMatcherWeb.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-
-        public ApplicationDbContext()
-            : base("DefaultConnection")
-        {
-            //: base("DefaultConnection", throwIfV1Schema: false)
-        }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-    }
 }

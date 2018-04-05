@@ -10,6 +10,7 @@ namespace ITMatcherWeb.DataContexts
     public class BulletinDb : DbContext
     {
         public virtual DbSet<Bulletin> Bulletins{ get; set; }
+        public virtual DbSet<Picture> Pictures{ get; set; }
 
         public BulletinDb() : base("DefaultConnection")
         {

@@ -12,6 +12,9 @@ namespace ITMatcherWeb.DataContexts
     public class IdentityDb : IdentityDbContext<ApplicationUser>
     {
 
+        public virtual DbSet<JobExperience> JobExperiences { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<Certificate> Certificates { get; set; }
 
         public IdentityDb() : base("DefaultConnection")
         {

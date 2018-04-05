@@ -9,13 +9,12 @@ namespace ITMatcherWeb.Models
 {
     public class JobExperience
     {
-        public string JobExperienceId { get; set; }
+        public int JobExperienceId { get; set; }
         public string Employer { get; set; }
         public DateTime? DateOfEmployment { get; set; }
         public DateTime? DateOfExit { get; set; }
         public List<Subject> Subjects { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
-        public int ApplicationUserId { get; set; }
 
     }
 }

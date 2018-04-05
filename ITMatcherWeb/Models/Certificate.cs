@@ -14,7 +14,6 @@ namespace ITMatcherWeb.Models
         [Display(Name = "Name of certifier")]
         public string CertificationProvider { get; set;}
         public virtual ApplicationUser ApplicationUser { get; set; }
-        public int ApplicationUserId { get; set; }
 
     }
 }

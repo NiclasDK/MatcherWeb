@@ -4,10 +4,10 @@ namespace ITMatcherWeb.Models
 {
     public class Language
     {
+        [Key]
         public string LanguageId { get; set; }
         public string Name { get; set; }
         public LanguageMastery Mastery { get; set; }
-        [Required]
         public virtual ApplicationUser ApplicationUser { get; set; }
         public int ApplicationUserId { get; set; }
     }

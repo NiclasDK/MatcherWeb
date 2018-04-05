@@ -13,7 +13,7 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201804021335173_InitialCreate"; }
+            get { return "201804030951052_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

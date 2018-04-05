@@ -14,7 +14,6 @@ namespace ITMatcherWeb.Models
         public DateTime? DateOfEmployment { get; set; }
         public DateTime? DateOfExit { get; set; }
         public List<Subject> Subjects { get; set; }
-        [Required]
         public virtual ApplicationUser ApplicationUser { get; set; }
         public int ApplicationUserId { get; set; }
 

@@ -22,8 +22,16 @@ namespace ITMatcherWeb.Models
         public String FirstName { get; set; }
         public string LastName { get; set; }
 
+        public int JobExperienceId { get; set; }
+        [ForeignKey("JobExperienceId")]
         public virtual DbSet<JobExperience> JobExperiences { get; set; }
+
+        public int LanguageId { get; set; }
+        [ForeignKey("LanguageId")]
         public virtual DbSet<Language> languages { get; set; }
+
+        public int CertificateId { get; set; }
+        [ForeignKey("CertificateId")]
         public virtual DbSet<Certificate> certificates { get; set; }
 
 

@@ -11,12 +11,12 @@ namespace ITMatcherWeb.DataContexts.SubjectMigrations
                 "dbo.Subjects",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        SubjectId = c.String(nullable: false, maxLength: 128),
                         StartTime = c.DateTime(),
                         EndTime = c.DateTime(),
                         PercievedLevelOfSkill = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.SubjectId);
             
         }
         

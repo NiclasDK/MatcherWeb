@@ -196,33 +196,45 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="DataContexts\BulletinDb.cs" />
-    <Compile Include="DataContexts\BulletinMigrations\201804021343245_InitialCreate.cs" />
-    <Compile Include="DataContexts\BulletinMigrations\201804021343245_InitialCreate.Designer.cs">
-      <DependentUpon>201804021343245_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\BulletinMigrations\201804031210404_InitialCreate.cs" />
+    <Compile Include="DataContexts\BulletinMigrations\201804031210404_InitialCreate.Designer.cs">
+      <DependentUpon>201804031210404_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\BulletinMigrations\Configuration.cs" />
     <Compile Include="DataContexts\CertificateDb.cs" />
+    <Compile Include="DataContexts\CertificateMigrations\201804030953142_InitialCreate.cs" />
+    <Compile Include="DataContexts\CertificateMigrations\201804030953142_InitialCreate.Designer.cs">
+      <DependentUpon>201804030953142_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\CertificateMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804021335173_InitialCreate.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804021335173_InitialCreate.Designer.cs">
-      <DependentUpon>201804021335173_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201804030951052_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804030951052_InitialCreate.Designer.cs">
+      <DependentUpon>201804030951052_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="DataContexts\JobExperienceDb.cs" />
+    <Compile Include="DataContexts\JobExperienceMigrations\201804030953586_InitialCreate.cs" />
+    <Compile Include="DataContexts\JobExperienceMigrations\201804030953586_InitialCreate.Designer.cs">
+      <DependentUpon>201804030953586_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\JobExperienceMigrations\Configuration.cs" />
     <Compile Include="DataContexts\LanguageDb.cs" />
+    <Compile Include="DataContexts\LanguageMigrations\201804030956155_InitialCreate.cs" />
+    <Compile Include="DataContexts\LanguageMigrations\201804030956155_InitialCreate.Designer.cs">
+      <DependentUpon>201804030956155_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\LanguageMigrations\Configuration.cs" />
     <Compile Include="DataContexts\PictureDb.cs" />
-    <Compile Include="DataContexts\PictureMigrations\201804021427319_InitialCreate.cs" />
-    <Compile Include="DataContexts\PictureMigrations\201804021427319_InitialCreate.Designer.cs">
-      <DependentUpon>201804021427319_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\PictureMigrations\201804031212032_InitialCreate.cs" />
+    <Compile Include="DataContexts\PictureMigrations\201804031212032_InitialCreate.Designer.cs">
+      <DependentUpon>201804031212032_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\PictureMigrations\Configuration.cs" />
     <Compile Include="DataContexts\SubjectDb.cs" />
-    <Compile Include="DataContexts\SubjectMigrations\201804021426566_InitialCreate.cs" />
-    <Compile Include="DataContexts\SubjectMigrations\201804021426566_InitialCreate.Designer.cs">
-      <DependentUpon>201804021426566_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\SubjectMigrations\201804030957247_InitialCreate.cs" />
+    <Compile Include="DataContexts\SubjectMigrations\201804030957247_InitialCreate.Designer.cs">
+      <DependentUpon>201804030957247_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\SubjectMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -333,17 +345,26 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\BulletinMigrations\201804021343245_InitialCreate.resx">
-      <DependentUpon>201804021343245_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\BulletinMigrations\201804031210404_InitialCreate.resx">
+      <DependentUpon>201804031210404_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804021335173_InitialCreate.resx">
-      <DependentUpon>201804021335173_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\CertificateMigrations\201804030953142_InitialCreate.resx">
+      <DependentUpon>201804030953142_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\PictureMigrations\201804021427319_InitialCreate.resx">
-      <DependentUpon>201804021427319_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804030951052_InitialCreate.resx">
+      <DependentUpon>201804030951052_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\SubjectMigrations\201804021426566_InitialCreate.resx">
-      <DependentUpon>201804021426566_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\JobExperienceMigrations\201804030953586_InitialCreate.resx">
+      <DependentUpon>201804030953586_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\LanguageMigrations\201804030956155_InitialCreate.resx">
+      <DependentUpon>201804030956155_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\PictureMigrations\201804031212032_InitialCreate.resx">
+      <DependentUpon>201804031212032_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\SubjectMigrations\201804030957247_InitialCreate.resx">
+      <DependentUpon>201804030957247_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

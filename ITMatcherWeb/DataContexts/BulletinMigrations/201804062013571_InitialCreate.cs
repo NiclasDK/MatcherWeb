@@ -1,0 +1,45 @@
+namespace ITMatcherWeb.DataContexts.BulletinMigrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class InitialCreate : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Pictures",
+                c => new
+                    {
+                        PictureId = c.Int(nullable: false, identity: true),
+                        PicturePath = c.String(),
+                        BulletinId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.PictureId);
+            
+            CreateTable(
+                "dbo.Bulletins",
+                c => new
+                    {
+                        BulletinId = c.Int(nullable: false),
+                        DateAdded = c.DateTime(),
+                        Text = c.String(),
+                        Active = c.Boolean(nullable: false),
+                        Type = c.String(),
+                        PictureId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.BulletinId)
+                .ForeignKey("dbo.Pictures", t => t.BulletinId)
+                .Index(t => t.BulletinId);
+            
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.Bulletins", "BulletinId", "dbo.Pictures");
+            DropIndex("dbo.Bulletins", new[] { "BulletinId" });
+            DropTable("dbo.Bulletins");
+            DropTable("dbo.Pictures");
+        }
+    }
+}

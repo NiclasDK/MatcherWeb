@@ -15,7 +15,6 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
                         DateOfCertification = c.DateTime(),
                         Name = c.String(),
                         CertificationProvider = c.String(),
-                        ApplicationUserId = c.Int(nullable: false),
                         ApplicationUser_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.CertificateId)
@@ -95,11 +94,10 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
                 "dbo.JobExperiences",
                 c => new
                     {
-                        JobExperienceId = c.String(nullable: false, maxLength: 128),
+                        JobExperienceId = c.Int(nullable: false, identity: true),
                         Employer = c.String(),
                         DateOfEmployment = c.DateTime(),
                         DateOfExit = c.DateTime(),
-                        ApplicationUserId = c.Int(nullable: false),
                         ApplicationUser_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.JobExperienceId)
@@ -114,7 +112,7 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
                         StartTime = c.DateTime(),
                         EndTime = c.DateTime(),
                         PercievedLevelOfSkill = c.Int(nullable: false),
-                        JobExperience_JobExperienceId = c.String(maxLength: 128),
+                        JobExperience_JobExperienceId = c.Int(),
                     })
                 .PrimaryKey(t => t.SubjectId)
                 .ForeignKey("dbo.JobExperiences", t => t.JobExperience_JobExperienceId)
@@ -127,7 +125,6 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
                         LanguageId = c.String(nullable: false, maxLength: 128),
                         Name = c.String(),
                         Mastery = c.Int(nullable: false),
-                        ApplicationUserId = c.Int(nullable: false),
                         ApplicationUser_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.LanguageId)

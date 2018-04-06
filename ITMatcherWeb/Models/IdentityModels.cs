@@ -28,11 +28,11 @@ namespace ITMatcherWeb.Models
 
         public int LanguageId { get; set; }
         [ForeignKey("LanguageId")]
-        public virtual DbSet<Language> languages { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
 
         public int CertificateId { get; set; }
         [ForeignKey("CertificateId")]
-        public virtual DbSet<Certificate> certificates { get; set; }
+        public virtual DbSet<Certificate> Certificates { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -41,6 +41,24 @@ namespace ITMatcherWeb.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
+        }
+
+        public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+        {
+
+            public virtual DbSet<JobExperience> JobExperiences { get; set; }
+            public virtual DbSet<Language> Languages { get; set; }
+            public virtual DbSet<Certificate> Certificates { get; set; }
+
+            public ApplicationDbContext() : base("DefaultConnection")
+            {
+
+            }
+
+            internal static ApplicationDbContext Create()
+            {
+                return new ApplicationDbContext();
+            }
         }
 
 

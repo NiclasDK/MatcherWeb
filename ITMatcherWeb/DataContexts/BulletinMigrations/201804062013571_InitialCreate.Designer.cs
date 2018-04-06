@@ -13,7 +13,7 @@ namespace ITMatcherWeb.DataContexts.BulletinMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201804051505500_InitialCreate"; }
+            get { return "201804062013571_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

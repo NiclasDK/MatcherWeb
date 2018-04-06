@@ -5,9 +5,9 @@ namespace ITMatcherWeb.Models
 {
     public class Picture
     {
+        [Key]
         public int PictureId { get; set; }
         public string PicturePath { get; set; }
-        [Required]
         public Bulletin Bulletin { get; set; }
         public int BulletinId { get; set; }
     }

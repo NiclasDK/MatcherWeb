@@ -52,7 +52,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -196,19 +198,14 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="DataContexts\BulletinDb.cs" />
-    <Compile Include="DataContexts\BulletinMigrations\201804051505500_InitialCreate.cs" />
-    <Compile Include="DataContexts\BulletinMigrations\201804051505500_InitialCreate.Designer.cs">
-      <DependentUpon>201804051505500_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.cs" />
+    <Compile Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.Designer.cs">
+      <DependentUpon>201804062013571_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\BulletinMigrations\Configuration.cs" />
-    <Compile Include="DataContexts\IdentityDb.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804051502556_InitialCreate.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804051502556_InitialCreate.Designer.cs">
-      <DependentUpon>201804051502556_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804051530209_SubjectAddedForeignKey.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804051530209_SubjectAddedForeignKey.Designer.cs">
-      <DependentUpon>201804051530209_SubjectAddedForeignKey.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.Designer.cs">
+      <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,11 +290,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Profile\profilePage.cshtml" />
-    <Content Include="Views\JobExperiences\Create.cshtml" />
-    <Content Include="Views\JobExperiences\Delete.cshtml" />
-    <Content Include="Views\JobExperiences\Details.cshtml" />
-    <Content Include="Views\JobExperiences\Edit.cshtml" />
-    <Content Include="Views\JobExperiences\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,14 +311,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\BulletinMigrations\201804051505500_InitialCreate.resx">
-      <DependentUpon>201804051505500_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.resx">
+      <DependentUpon>201804062013571_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804051502556_InitialCreate.resx">
-      <DependentUpon>201804051502556_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804051530209_SubjectAddedForeignKey.resx">
-      <DependentUpon>201804051530209_SubjectAddedForeignKey.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.resx">
+      <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

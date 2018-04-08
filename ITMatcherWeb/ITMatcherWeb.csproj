@@ -197,6 +197,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DataContexts\ApplicationUserDb.cs" />
     <Compile Include="DataContexts\BulletinDb.cs" />
     <Compile Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.cs" />
     <Compile Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.Designer.cs">
@@ -290,6 +292,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Profile\profilePage.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

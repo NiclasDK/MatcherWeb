@@ -195,6 +195,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobExperiencesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -208,6 +209,30 @@
     <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.Designer.cs">
       <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804160903414_Icollections added.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804160903414_Icollections added.Designer.cs">
+      <DependentUpon>201804160903414_Icollections added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804160947354_Icollections added2.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804160947354_Icollections added2.Designer.cs">
+      <DependentUpon>201804160947354_Icollections added2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804161407122_RemoveRequiredFromJobExperience.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804161407122_RemoveRequiredFromJobExperience.Designer.cs">
+      <DependentUpon>201804161407122_RemoveRequiredFromJobExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804161411010_AddRequiredFromJobExperience.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804161411010_AddRequiredFromJobExperience.Designer.cs">
+      <DependentUpon>201804161411010_AddRequiredFromJobExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804190802552_RemoveRequired2.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804190802552_RemoveRequired2.Designer.cs">
+      <DependentUpon>201804190802552_RemoveRequired2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.Designer.cs">
+      <DependentUpon>201804190932498_ApplicationUserDBAddedFluentApiConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -297,6 +322,11 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\JobExperiences\Create.cshtml" />
+    <Content Include="Views\JobExperiences\Delete.cshtml" />
+    <Content Include="Views\JobExperiences\Details.cshtml" />
+    <Content Include="Views\JobExperiences\Edit.cshtml" />
+    <Content Include="Views\JobExperiences\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,6 +353,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.resx">
       <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804160903414_Icollections added.resx">
+      <DependentUpon>201804160903414_Icollections added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804160947354_Icollections added2.resx">
+      <DependentUpon>201804160947354_Icollections added2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804161407122_RemoveRequiredFromJobExperience.resx">
+      <DependentUpon>201804161407122_RemoveRequiredFromJobExperience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804161411010_AddRequiredFromJobExperience.resx">
+      <DependentUpon>201804161411010_AddRequiredFromJobExperience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804190802552_RemoveRequired2.resx">
+      <DependentUpon>201804190802552_RemoveRequired2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.resx">
+      <DependentUpon>201804190932498_ApplicationUserDBAddedFluentApiConfig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

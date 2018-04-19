@@ -8,110 +8,114 @@ using System.Web;
 using System.Web.Mvc;
 using ITMatcherWeb.DataContexts;
 using ITMatcherWeb.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ITMatcherWeb.Controllers
 {
-    public class UsersController : Controller
+    public class JobExperiencesController : Controller
     {
         private ApplicationUserDb db = new ApplicationUserDb();
 
-        // GET: Users
+        // GET: JobExperiences
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.JobExperiences.ToList());
         }
 
-        // GET: Users/Details/5
-        public ActionResult Details(string id)
+        // GET: JobExperiences/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            JobExperience jobExperience = db.JobExperiences.Find(id);
+            if (jobExperience == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(jobExperience);
         }
 
-        // GET: Users/Create
+        // GET: JobExperiences/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: JobExperiences/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Available,ActivelySeeking,AcceptedUseOfData,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] User user)
+        public ActionResult Create([Bind(Include = "JobExperienceId,Employer,DateOfEmployment,DateOfExit")] JobExperience jobExperience)
         {
+            var UserId = User.Identity.GetUserId();
+            jobExperience.ApplicationUser = db.Users.Where(x => x.Id == UserId).First();
+
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.JobExperiences.Add(jobExperience);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(jobExperience);
         }
 
-        // GET: Users/Edit/5
-        public ActionResult Edit(string id)
+        // GET: JobExperiences/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            JobExperience jobExperience = db.JobExperiences.Find(id);
+            if (jobExperience == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(jobExperience);
         }
 
-        // POST: Users/Edit/5
+        // POST: JobExperiences/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Available,ActivelySeeking,AcceptedUseOfData,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] User user)
+        public ActionResult Edit([Bind(Include = "JobExperienceId,Employer,DateOfEmployment,DateOfExit")] JobExperience jobExperience)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(jobExperience).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(jobExperience);
         }
 
-        // GET: Users/Delete/5
-        public ActionResult Delete(string id)
+        // GET: JobExperiences/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            JobExperience jobExperience = db.JobExperiences.Find(id);
+            if (jobExperience == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(jobExperience);
         }
 
-        // POST: Users/Delete/5
+        // POST: JobExperiences/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            JobExperience jobExperience = db.JobExperiences.Find(id);
+            db.JobExperiences.Remove(jobExperience);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

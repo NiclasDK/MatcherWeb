@@ -8,12 +8,22 @@ using System.Web;
 
 namespace ITMatcherWeb.DataContexts
 {
-    public class ApplicationUserDb : IdentityDbContext<Users>
+    public class ApplicationUserDb : IdentityDbContext<User>
     {
 
         public virtual DbSet<JobExperience> JobExperiences { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Certificate> Certificates { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>()
+            .HasMany(u => u.JobExperiences)
+            .WithRequired(j => j.ApplicationUser)
+            .WillCascadeOnDelete(true);
+        }
 
         public ApplicationUserDb() : base("DefaultConnection")
         {

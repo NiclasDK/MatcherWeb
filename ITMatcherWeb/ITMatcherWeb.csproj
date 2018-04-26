@@ -251,17 +251,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\barchart.png" />
+    <Content Include="Content\Images\barchart.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Building.png" />
-    <Content Include="Content\business-3141342_1920.jpg" />
-    <Content Include="Content\clock.png" />
-    <Content Include="Content\computer.png" />
-    <Content Include="Content\ITLogo.png" />
+    <Content Include="Content\Images\Building.png" />
+    <Content Include="Content\Images\business-3141342_1920.jpg" />
+    <Content Include="Content\Images\clock.png" />
+    <Content Include="Content\Images\computer.png" />
+    <Content Include="Content\Images\ITLogo.png" />
     <Content Include="Content\ITStyleSheet.css" />
-    <Content Include="Content\Karts.jpg" />
-    <Content Include="Content\Kid %281%29.jpg" />
+    <Content Include="Content\Images\Karts.jpg" />
+    <Content Include="Content\Images\Kid.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

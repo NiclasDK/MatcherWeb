@@ -1,42 +1,46 @@
-﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
-
-@{
-    ViewBag.Title = "profilePage";
-}
-
-
-<h2>profilePage</h2>
-
+﻿<!DOCTYPE html>
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale-1" >
+    <link href="~/Content/bootstrap.css" rel="stylesheet" >
+</head>
 <body>
-    <div class="col-lg-3" style="background-color: slateblue">
-
-        <ul style="list-style: none" align="center">
-            <!-- Profile picture-->
-            <li>
-                <div class="container">
-                    <img />src="~/Content/clock.png" width: auto; border="0" />
+    <div id="wrapper">
+        <!--2sections, 1 issidebarrother is page content-->
+        <!--sidebar-->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Add job experience</a></li>
+                <li><a href="#">Change password</a></li>
+            </ul>
+        </div>
+        <!--content-->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="btn btn-success" id="menu-toggle">Toggle menu</a>
+                        <h1>Sidebar layouts are cool</h1>
+                        <p>I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,
+                        I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,
+                        I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,
+                        I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,
+                        I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,I love stuff,
+                        I love stuff,</p>
+                    </div>
                 </div>
-            </li>
-            <!-- Profile picture end-->
-            <li>
-                <button type="button" class="btn btn-primary btn-block">Edit experience details</button>
-            </li>
-            <li>
-                <button type="button" class="btn btn-primary btn-block">Possible offers</button>
-            </li>
-            <li>
-                <button type="button" class="btn btn-primary btn-block">Button 1</button>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="col-lg-9">
-        <ul>
-            <li><a href="/dr.dk">1</a></li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    </div>
+    <!--Script til at vise sidenav-->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("menuDisplayed");
+        });
+    </script>
+
 </body>
-
-

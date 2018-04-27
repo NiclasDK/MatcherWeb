@@ -8,7 +8,8 @@ using System.Web;
 
 namespace ITMatcherWeb.DataContexts
 {
-    public class ApplicationUserDb : IdentityDbContext<User>
+    //ApplicationUserDb
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
 
         public virtual DbSet<JobExperience> JobExperiences { get; set; }
@@ -25,14 +26,14 @@ namespace ITMatcherWeb.DataContexts
             .WillCascadeOnDelete(true);
         }
 
-        public ApplicationUserDb() : base("DefaultConnection")
+        public ApplicationDbContext() : base("DefaultConnection")
         {
 
         }
 
-        internal static ApplicationUserDb Create()
+        internal static ApplicationDbContext Create()
         {
-            return new ApplicationUserDb();
+            return new ApplicationDbContext();
         }
 
     }

@@ -6,7 +6,7 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
     using System.Linq;
 
     //internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.Models.ApplicationUser.ApplicationDbContext>
-    internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.DataContexts.ApplicationUserDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<ITMatcherWeb.DataContexts.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
             MigrationsDirectory = @"DataContexts\IdentityMigrations";
         }
 
-        protected override void Seed(ITMatcherWeb.DataContexts.ApplicationUserDb context)
+        protected override void Seed(ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

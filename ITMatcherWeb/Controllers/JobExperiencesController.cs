@@ -14,7 +14,7 @@ namespace ITMatcherWeb.Controllers
 {
     public class JobExperiencesController : Controller
     {
-        private ApplicationUserDb db = new ApplicationUserDb();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: JobExperiences
         public ActionResult Index()

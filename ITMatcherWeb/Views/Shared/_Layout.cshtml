@@ -24,18 +24,25 @@
                     <li><a href=/#about>About</a></li>
                     <li><a href=/#portfolio>Portfolio</a></li>
                     <li><a href=/#contact>Contact</a></li>
+                    @if (Request.IsAuthenticated) {
+                        <li>@Html.ActionLink("Profile", "Profile", "Profile")</li>  
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - IT Matcher</p>
-        </footer>
     </div>
+
+    <!--
+    <footer>
+        <p>&copy; @DateTime.Now.Year - IT Matcher</p>
+    </footer>
+                -->
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

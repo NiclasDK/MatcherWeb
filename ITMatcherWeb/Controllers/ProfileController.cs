@@ -9,9 +9,9 @@ namespace ITMatcherWeb.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-        public ActionResult profilePage()
+        public ActionResult Profile()
         {
-            return View();
+            return View("profilePage");
         }
     }
 }

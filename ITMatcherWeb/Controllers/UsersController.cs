@@ -13,7 +13,7 @@ namespace ITMatcherWeb.Controllers
 {
     public class UsersController : Controller
     {
-        private ApplicationUserDb db = new ApplicationUserDb();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Users
         public ActionResult Index()

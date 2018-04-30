@@ -7,7 +7,7 @@ namespace ITMatcherWeb.Models
     {
         public int PictureId { get; set; }
         public string PicturePath { get; set; }
-        public Bulletin Bulletin { get; set; }
+        public virtual Bulletin Bulletin { get; set; }
         public int BulletinId { get; set; }
     }
 }

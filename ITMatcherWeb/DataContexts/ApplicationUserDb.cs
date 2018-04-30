@@ -15,11 +15,23 @@ namespace ITMatcherWeb.DataContexts
         public virtual DbSet<JobExperience> JobExperiences { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Certificate> Certificates { get; set; }
+        public virtual DbSet<Bulletin> Bulletins { get; set; }
+        public virtual DbSet<Picture> Pictures { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<JobExperience>()
+            .HasMany(j => j.Subjects);
+
+            modelBuilder.Entity<Bulletin>()
+            .HasOptional(b => b.Picture)
+            .WithRequired(p => p.Bulletin);
+
+            //Creates relation between user and jobexperiences. 
+            //User is required for jobExperience to exist.
+            //If user is deleted, all JobExperiences will be deleted.
             modelBuilder.Entity<User>()
             .HasMany(u => u.JobExperiences)
             .WithRequired(j => j.ApplicationUser)

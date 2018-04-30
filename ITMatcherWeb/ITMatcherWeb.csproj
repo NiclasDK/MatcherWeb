@@ -199,12 +199,6 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataContexts\ApplicationUserDb.cs" />
-    <Compile Include="DataContexts\BulletinDb.cs" />
-    <Compile Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.cs" />
-    <Compile Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.Designer.cs">
-      <DependentUpon>201804062013571_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\BulletinMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.Designer.cs">
       <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
@@ -232,6 +226,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.Designer.cs">
       <DependentUpon>201804190932498_ApplicationUserDBAddedFluentApiConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.Designer.cs">
+      <DependentUpon>201804300809510_CollectiveMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,8 +291,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -348,9 +344,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\BulletinMigrations\201804062013571_InitialCreate.resx">
-      <DependentUpon>201804062013571_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.resx">
       <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.resx">
       <DependentUpon>201804190932498_ApplicationUserDBAddedFluentApiConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.resx">
+      <DependentUpon>201804300809510_CollectiveMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

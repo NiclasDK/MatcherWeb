@@ -13,7 +13,7 @@ namespace ITMatcherWeb.Models
         public string Employer { get; set; }
         public DateTime? DateOfEmployment { get; set; }
         public DateTime? DateOfExit { get; set; }
-        public ICollection<Subject> Subjects { get; set; }
+        public virtual ICollection<Subject> Subjects { get; set; }
         public virtual User ApplicationUser { get; set; }
     }
 }

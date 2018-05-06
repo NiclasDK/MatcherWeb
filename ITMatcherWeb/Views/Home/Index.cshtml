@@ -1,15 +1,19 @@
 ﻿@model ITMatcherWeb.Models.RegisterViewModel
+
 @using ITMatcherWeb.Models
+
 
 <!DOCTYPE html>
 
-<title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
 <style>
     body, h1, h2, h3, h4, h5, h6 {
         font-family: "Lato", sans-serif;
@@ -60,43 +64,30 @@
     }
 </style>
 
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-<script>
-    window.addEventListener("load", function () {
-        window.cookieconsent.initialise({
-            "palette": {
-                "popup": {
-                    "background": "#252e39"
-                },
-                "button": {
-                    "background": "#14a7d0"
-                }
-            }
-        })
-    });
-</script>
+
+
+
 <html>
 <body>
 
     <!-- First Parallax Image with Logo Text -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
         <div class="w3-display-middle" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">IT Matcher</span>
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">IT matcher</span>
         </div>
     </div>
 
 
     <!--Registration area-->
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "Register" }))
     {
         <div align="center" class="w3-black w3-opacity" id="register">
             <br />
             @Html.AntiForgeryToken()
-            <h4>Create a new account.</h4>
+            <h4>Register</h4>
             <hr />
             @Html.ValidationSummary("", new { @class = "text-danger" })
-            <div class="form-group">
+            <div class="form-group" id="lastname">
                 @Html.LabelFor(m => m.Email, new { @class = "control-label" })
                 <div>
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
@@ -118,9 +109,41 @@
                 <button class="w3-button w3-light-grey w3-section" type="submit" value="Register">
                     <i class="fa fa-user"></i>Create user
                 </button>
+                <input type="button" name="ConfirmRegBtn" value="Submit" id="submitBtn" data-toggle="modal" data-target="#confirm-submit" class="w3-button w3-light-grey w3-section" />
             </div>
         </div>
     }
+
+
+    <!--legal data-stuff-->
+    <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header w3-center">
+                    <h1>Before you create your user</h1>
+                </div>
+                <div class="modal-body scroll">
+                    Some stuff from database
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta, sapien ac hendrerit vehicula, neque massa aliquet augue, nec aliquet tellus eros sit amet orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean porttitor sapien vel ligula tincidunt euismod.
+                    Duis tempus urna sed magna vulputate, in pretium nulla laoreet. Nam consectetur lectus nec lectus viverra, vel pharetra lectus condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Donec dapibus, metus eu lobortis ornare, nisi purus tempor neque, et sagittis justo felis eu arcu. Donec eu accumsan nunc. Duis interdum, turpis nec ullamcorper vehicula, purus elit laoreet augue, in lobortis elit quam vel odio.
+                    Praesent maximus ac purus vitae pellentesque. Cras sem dolor, porta sit amet sodales sed, tristique sed odio. Vivamus lobortis vestibulum mi vel dapibus. Donec rhoncus lorem sit amet efficitur vestibulum.
+                    Maecenas faucibus ipsum ullamcorper elit commodo venenatis. Suspendisse ac tincidunt lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla vestibulum felis nec nibh vulputate aliquet.
+                    Ut rhoncus gravida consequat. Praesent tristique dui eu rhoncus laoreet. Cras accumsan urna id neque tincidunt interdum. Nam in imperdiet purus, ut consectetur ante. Vivamus varius nisi non velit malesuada, a suscipit orci porta.
+                    Etiam pulvinar tincidunt ornare. Nunc tincidunt, risus vel blandit lobortis, eros arcu suscipit risus, ut lobortis est lorem sed arcu. Suspendisse eget facilisis ligula.
+                    Vivamus fermentum aliquam porttitor. Aenean quis purus sed justo posuere consectetur non vitae nisl. Praesent eu sem a eros porta ultrices. Fusce imperdiet sed eros quis suscipit.
+                    Ut non lacus in odio convallis suscipit. Cras et sem massa. Mauris porttitor ipsum libero. Ut vehicula maximus dui eu gravida. Integer ullamcorper nulla vitae massa efficitur, eu volutpat nunc rutrum.
+                    Nulla id viverra arcu. Nulla eu pretium nunc. Nullam finibus scelerisque tincidunt.
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" id="submitBtn2" class="btn btn-success success">Submit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!--login modal-->
     <!-- Modal -->
@@ -134,7 +157,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <section id="loginForm">
                                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                                 {
@@ -154,7 +177,7 @@
                                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                    
+
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
                                             <input type="submit" value="Log in" class="btn btn-default" />
@@ -191,13 +214,12 @@
             <!-- Hide this text on small devices -->
             <div class="w3-col m6 w3-hide-small w3-padding-large">
                 <p>
-                    Per Bengtsen is the founder and CEO of IT Matcher. Per has been working with IT since 1984 and has specifically worked with selection of staff since 1997. IT matcher ApS was created on the 1st of January 2000.
+                    Per Bengtsen is the founder and CEO of IT matcher. Per has been working with IT since 1984 and has specifically worked with selection of staff since 1997. IT matcher ApS was created on the 1st of January 2000.
                 </p>
             </div>
         </div>
 
         @{
-
             int amountOfProjectManagers = 5;
         }
 
@@ -294,81 +316,85 @@
     <!-- Container (Contact Section) -->
     <div class="w3-content w3-container w3-padding-64" id="contact">
         <h3 class="w3-center">WHERE I WORK</h3>
-        <p class="w3-center"><em>Leave your feedback!</em></p>
-
-        <div class="w3-row w3-padding-32 w3-section">
-            <div class="w3-col m4 w3-container">
-                <!-- Add Google Maps -->
-                <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
-            </div>
-            <div class="w3-col m8 w3-panel">
-                <div class="w3-large w3-margin-bottom">
-                    <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Vedbæk, Denmark<br>
-                    <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +45 50513351<br>
-                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: per.bengtsen@it-matcher.dk<br>
-                </div>
-                <p>Contact me on:</p>
-                <form action="/action_page.php" target="_blank">
-                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                        <div class="w3-half">
-                            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-                        </div>
-                        <div class="w3-half">
-                            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-                        </div>
-                    </div>
-                    <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-                    <button class="w3-button w3-black w3-right w3-section" type="submit">
-                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                    </button>
-                </form>
-            </div>
+        <div class="w3-large w3-margin-bottom w3-center">
+            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Vedbæk, Denmark<br>
+            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +45 50513351<br>
+            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: per.bengtsen@it-matcher.dk<br>
         </div>
+        <!-- Google maps-->
+        <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+        <footer class="w3-center w3-black w3-padding-32 w3-opacity">
+            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        </footer>
     </div>
 
-    <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-32 w3-opacity">
-        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    </footer>
 
-    <!-- Add Google Maps -->
-    <script>
-        function myMap() {
-            myCenter = new google.maps.LatLng(55.8419488, 12.5365159);
-            var mapOptions = {
-                center: myCenter,
-                zoom: 12, scrollwheel: false, draggable: false,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
-            var marker = new google.maps.Marker({
-                position: myCenter,
-            });
-            marker.setMap(map);
-        }
+    @section Scripts
+    {
+        <!-- Footer -->
+        <!-- Add Google Maps -->
+        <script>
 
-        // Modal Image Gallery
-        function onClick(element) {
-            document.getElementById("img01").src = element.src;
-            document.getElementById("modal01").style.display = "block";
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = element.alt;
-        }
 
-        // Change style of navbar on scroll
-        window.onscroll = function () { myFunction() };
-        function myFunction() {
-            var navbar = document.getElementById("myNavbar");
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-            } else {
-                navbar.className = navbar.className.replace("w3-card w3-animate-top w3-white", "");
+            function myMap() {
+                myCenter = new google.maps.LatLng(55.8419488, 12.5365159);
+                var mapOptions = {
+                    center: myCenter,
+                    zoom: 12, scrollwheel: false, draggable: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: myCenter,
+                });
+                marker.setMap(map);
             }
-        }
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlh1E_8qrTQZgqworxPx4C2pGuKzTCXLQ&callback=myMap"></script>
+            // Modal Image Gallery
+            function onClick(element) {
+                document.getElementById("img01").src = element.src;
+                document.getElementById("modal01").style.display = "block";
+                var captionText = document.getElementById("caption");
+                captionText.innerHTML = element.alt;
+            }
+
+        </script>
+
+        <!--Cookie consent-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+
+        
+        <script>
+            $('#submitBtn2').click(function () {
+                $('#Register').submit();
+            });
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlh1E_8qrTQZgqworxPx4C2pGuKzTCXLQ&callback=myMap"></script>
+
+        <!--Cookie Concent-->
+        <script>
+            window.addEventListener("load", function () {
+                window.cookieconsent.initialise({
+                    "palette": {
+                        "popup": {
+                            "background": "#252e39"
+                        },
+                        "button": {
+                            "background": "#14a7d0"
+                        }
+                    },
+                    "theme": "edgeless"
+                })
+            });
+        </script>
+
+    }
+
+
+
 
 </body>
 </html>

@@ -8,7 +8,6 @@ namespace ITMatcherWeb.Models
         public string LanguageId { get; set; }
         public string Name { get; set; }
         public LanguageMastery Mastery { get; set; }
-        [Required]
         public virtual User ApplicationUser { get; set; }
     }
 

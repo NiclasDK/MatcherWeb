@@ -11,7 +11,7 @@ namespace ITMatcherWeb.Controllers
     {
         //Get ID of current user -> Get role of current user -> Pass to view.
         // GET: Profile
-        //[Authorize]
+        [Authorize]
         public ActionResult Profile()
         {
             return View("profilePage");

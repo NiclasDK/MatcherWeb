@@ -231,6 +231,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.Designer.cs">
       <DependentUpon>201804300809510_CollectiveMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805110948074_error.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805110948074_error.Designer.cs">
+      <DependentUpon>201805110948074_error.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -367,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.resx">
       <DependentUpon>201804300809510_CollectiveMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805110948074_error.resx">
+      <DependentUpon>201805110948074_error.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

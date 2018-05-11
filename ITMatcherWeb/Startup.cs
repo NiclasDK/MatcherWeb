@@ -6,8 +6,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using ITMatcherWeb.Models;
 using System.Data.Entity;
 
-
-
 [assembly: OwinStartupAttribute(typeof(ITMatcherWeb.Startup))]
 namespace ITMatcherWeb
 {

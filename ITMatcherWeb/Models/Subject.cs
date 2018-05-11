@@ -9,12 +9,10 @@ namespace ITMatcherWeb.Models
 {
     public class Subject
     {
-        [Key]
         public string SubjectId { get; set; }
-        string Name { get; set; }
+        public string Name { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public int PercievedLevelOfSkill { get; set; }
-
     }
 }

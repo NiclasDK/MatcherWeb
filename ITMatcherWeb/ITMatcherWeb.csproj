@@ -235,6 +235,14 @@
     <Compile Include="DataContexts\IdentityMigrations\201805110948074_error.Designer.cs">
       <DependentUpon>201805110948074_error.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805111302162_changed subject-class.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805111302162_changed subject-class.Designer.cs">
+      <DependentUpon>201805111302162_changed subject-class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805112014545_BulletinType added.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805112014545_BulletinType added.Designer.cs">
+      <DependentUpon>201805112014545_BulletinType added.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -374,6 +382,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805110948074_error.resx">
       <DependentUpon>201805110948074_error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805111302162_changed subject-class.resx">
+      <DependentUpon>201805111302162_changed subject-class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805112014545_BulletinType added.resx">
+      <DependentUpon>201805112014545_BulletinType added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

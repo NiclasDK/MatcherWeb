@@ -14,9 +14,13 @@ namespace ITMatcherWeb.Models
         public string Headline { get; set; }
         public string Text { get; set; }
         public bool Active { get; set; } = false;
-        public string Type { get; set; }
+        public BulletinType Type { get; set; }
         public virtual Picture Picture { get; set; }
         public int PictureId { get; set; }
+    }
+
+    public enum BulletinType {
+           ABOUT, CONTACT, NEWS, ARRANGEMENT
     }
 
 }

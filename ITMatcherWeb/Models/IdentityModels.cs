@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -15,6 +16,7 @@ namespace ITMatcherWeb.Models
         public Boolean Available { get; set; }
         public Boolean ActivelySeeking { get; set; }
         public Boolean AcceptedUseOfData { get; set; }
+        [Display(Name = "Expected hourly salary")]
         public int ExpectedHourlySalary { get; set;}
         public Boolean Gender { get; set;}
         public DateTime? DateOfBirth { get; set; }

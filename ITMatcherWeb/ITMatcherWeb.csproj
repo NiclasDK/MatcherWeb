@@ -197,6 +197,7 @@
     <Compile Include="Controllers\JobExperiencesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataContexts\ApplicationUserDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.cs" />
@@ -335,6 +336,11 @@
     <Content Include="Views\JobExperiences\Details.cshtml" />
     <Content Include="Views\JobExperiences\Edit.cshtml" />
     <Content Include="Views\JobExperiences\Index.cshtml" />
+    <Content Include="Views\Subjects\Create.cshtml" />
+    <Content Include="Views\Subjects\Delete.cshtml" />
+    <Content Include="Views\Subjects\Details.cshtml" />
+    <Content Include="Views\Subjects\Edit.cshtml" />
+    <Content Include="Views\Subjects\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

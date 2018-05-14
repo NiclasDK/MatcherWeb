@@ -2,7 +2,6 @@
 
 @using ITMatcherWeb.Models
 
-
 <!DOCTYPE html>
 
 <meta charset="UTF-8">
@@ -10,64 +9,81 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-
-<style>
-    body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Lato", sans-serif;
-    }
-
-    body, html {
-        height: 100%;
-        color: #777;
-        line-height: 1.8;
-    }
-
-    /* Create a Parallax Effect */
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    /* First image (Logo. Full height) */
-    .bgimg-1 {
-        background-image: url('../../Content/Images/business-3141342_1920.jpg');
-        min-height: 100vh;
-    }
-
-    /* Second image (Portfolio) */
-    .bgimg-2 {
-        background-image: url('../../Content/Images/Karts.jpg');
-        min-height: 400px;
-    }
-
-    /* Third image (Contact) */
-    .bgimg-3 {
-        background-image: url('../../Content/Images/Kid.jpg');
-        min-height: 400px;
-    }
-
-    .w3-wide {
-        letter-spacing: 10px;
-    }
-
-    .w3-hover-opacity {
-        cursor: pointer;
-    }
-
-    input {
-        border-radius: 5px;
-    }
-</style>
-
-
-
-
 <html>
+<head>
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Lato", sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        /* Create a Parallax Effect */
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* First image (Logo. Full height) */
+        .bgimg-1 {
+            background-image: url('../../Content/Images/business-3141342_1920.jpg');
+            min-height: 100vh;
+        }
+
+        /* Second image (Portfolio) */
+        .bgimg-2 {
+            background-image: url('../../Content/Images/Karts.jpg');
+            min-height: 400px;
+        }
+
+        /* Third image (Contact) */
+        .bgimg-3 {
+            background-image: url('../../Content/Images/Kid.jpg');
+            min-height: 400px;
+        }
+
+        .w3-wide {
+            letter-spacing: 10px;
+        }
+
+        .w3-hover-opacity {
+            cursor: pointer;
+        }
+
+        input {
+            border-radius: 5px;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#222222"
+                    },
+                    "button": {
+                        "background": "#f7f7f7"
+                    }
+                }
+            })
+        });
+    </script>
+
+</head>
+
+
+
 <body>
 
     <!-- First Parallax Image with Logo Text -->
@@ -221,7 +237,7 @@
         <div class="w3-row w3-center w3-dark-grey w3-padding-16">
             <div class="w3-quarter w3-section">
                 <span class="w3-xlarge">
-                @ViewBag.numberOfProjectMangers 
+                    @ViewBag.numberOfProjectMangers
                 </span><br>
                 Projektledere
             </div>
@@ -368,7 +384,7 @@
         <!--Cookie consent-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 
-        
+
         <script>
             $('#submitBtn2').click(function () {
                 $('#Register').submit();
@@ -376,23 +392,6 @@
         </script>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlh1E_8qrTQZgqworxPx4C2pGuKzTCXLQ&callback=myMap"></script>
-
-        <!--Cookie Concent-->
-        <script>
-            window.addEventListener("load", function () {
-                window.cookieconsent.initialise({
-                    "palette": {
-                        "popup": {
-                            "background": "#252e39"
-                        },
-                        "button": {
-                            "background": "#14a7d0"
-                        }
-                    },
-                    "theme": "edgeless"
-                })
-            });
-        </script>
 
     }
 

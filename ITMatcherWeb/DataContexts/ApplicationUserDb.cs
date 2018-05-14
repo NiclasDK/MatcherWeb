@@ -48,5 +48,6 @@ namespace ITMatcherWeb.DataContexts
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<ITMatcherWeb.Models.Subject> Subjects { get; set; }
     }
 }

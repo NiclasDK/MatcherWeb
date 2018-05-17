@@ -6,14 +6,14 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Icollectionsadded : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Icollectionsadded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804160903414_Icollections added"; }
+            get { return "201805171135359_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

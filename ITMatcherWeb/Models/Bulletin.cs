@@ -9,6 +9,7 @@ namespace ITMatcherWeb.Models
 {
     public class Bulletin
     {
+        [Key]
         public int BulletinId { get; set; }
         public DateTime? DateAdded { get; set; }
         public string Headline { get; set; }

@@ -47,8 +47,10 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject)
+        public ActionResult Create([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject, int id)
         {
+            subject.JobExperienceId = id;
+
             if (ModelState.IsValid)
             {
                 db.Subjects.Add(subject);
@@ -114,6 +116,16 @@ namespace ITMatcherWeb.Controllers
             db.Subjects.Remove(subject);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult SubjectList(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var subjectList = db.Subjects.Where(s => s.SubjectId == id).ToList();
+            return View(subjectList);
         }
 
         protected override void Dispose(bool disposing)

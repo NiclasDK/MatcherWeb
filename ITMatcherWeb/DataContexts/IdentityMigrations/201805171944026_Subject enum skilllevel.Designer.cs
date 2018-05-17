@@ -6,14 +6,14 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RemoveRequired2 : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class Subjectenumskilllevel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemoveRequired2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Subjectenumskilllevel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804190802552_RemoveRequired2"; }
+            get { return "201805171944026_Subject enum skilllevel"; }
         }
         
         string IMigrationMetadata.Source

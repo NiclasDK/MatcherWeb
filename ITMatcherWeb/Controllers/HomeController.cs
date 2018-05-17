@@ -42,7 +42,7 @@ namespace ITMatcherWeb.Controllers
             }
             else
             {
-                ViewBag.numberOfTestmangers = 0;
+                ViewBag.numberOfTestmanagers = 0;
             }
             /*Systemudviklere*/
             if ((from u in db.Users

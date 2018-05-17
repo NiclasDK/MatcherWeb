@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,6 +16,15 @@ namespace ITMatcherWeb.Controllers
     public class JobExperiencesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult ProfileJobIndex() {
+            var UserId = User.Identity.GetUserId();
+            var jobExpList = db.JobExperiences.Where(j => j.ApplicationUser.Id == UserId).ToList();
+
+            return View(jobExpList);
+        }
+
+
 
         // GET: JobExperiences
         public ActionResult Index()
@@ -55,9 +65,9 @@ namespace ITMatcherWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                db.JobExperiences.Add(jobExperience);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    db.JobExperiences.Add(jobExperience);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
             }
 
             return View(jobExperience);

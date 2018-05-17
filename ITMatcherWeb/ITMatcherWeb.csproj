@@ -200,49 +200,17 @@
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataContexts\ApplicationUserDb.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.Designer.cs">
-      <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.Designer.cs">
+      <DependentUpon>201805171135359_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804160903414_Icollections added.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804160903414_Icollections added.Designer.cs">
-      <DependentUpon>201804160903414_Icollections added.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201805171944026_Subject enum skilllevel.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805171944026_Subject enum skilllevel.Designer.cs">
+      <DependentUpon>201805171944026_Subject enum skilllevel.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804160947354_Icollections added2.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804160947354_Icollections added2.Designer.cs">
-      <DependentUpon>201804160947354_Icollections added2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804161407122_RemoveRequiredFromJobExperience.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804161407122_RemoveRequiredFromJobExperience.Designer.cs">
-      <DependentUpon>201804161407122_RemoveRequiredFromJobExperience.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804161411010_AddRequiredFromJobExperience.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804161411010_AddRequiredFromJobExperience.Designer.cs">
-      <DependentUpon>201804161411010_AddRequiredFromJobExperience.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804190802552_RemoveRequired2.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804190802552_RemoveRequired2.Designer.cs">
-      <DependentUpon>201804190802552_RemoveRequired2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.Designer.cs">
-      <DependentUpon>201804190932498_ApplicationUserDBAddedFluentApiConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.Designer.cs">
-      <DependentUpon>201804300809510_CollectiveMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805110948074_error.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805110948074_error.Designer.cs">
-      <DependentUpon>201805110948074_error.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805111302162_changed subject-class.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805111302162_changed subject-class.Designer.cs">
-      <DependentUpon>201805111302162_changed subject-class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805112014545_BulletinType added.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805112014545_BulletinType added.Designer.cs">
-      <DependentUpon>201805112014545_BulletinType added.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.Designer.cs">
+      <DependentUpon>201805172034017_Explicit fk in subject.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,7 +261,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -341,6 +311,8 @@
     <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\JobExperiences\ProfileJobIndex.cshtml" />
+    <Content Include="Views\JobExperiences\SubjectList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,38 +334,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804061857331_InitialCreate.resx">
-      <DependentUpon>201804061857331_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.resx">
+      <DependentUpon>201805171135359_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804160903414_Icollections added.resx">
-      <DependentUpon>201804160903414_Icollections added.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805171944026_Subject enum skilllevel.resx">
+      <DependentUpon>201805171944026_Subject enum skilllevel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804160947354_Icollections added2.resx">
-      <DependentUpon>201804160947354_Icollections added2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804161407122_RemoveRequiredFromJobExperience.resx">
-      <DependentUpon>201804161407122_RemoveRequiredFromJobExperience.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804161411010_AddRequiredFromJobExperience.resx">
-      <DependentUpon>201804161411010_AddRequiredFromJobExperience.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804190802552_RemoveRequired2.resx">
-      <DependentUpon>201804190802552_RemoveRequired2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804190932498_ApplicationUserDBAddedFluentApiConfig.resx">
-      <DependentUpon>201804190932498_ApplicationUserDBAddedFluentApiConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201804300809510_CollectiveMigrations.resx">
-      <DependentUpon>201804300809510_CollectiveMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805110948074_error.resx">
-      <DependentUpon>201805110948074_error.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805111302162_changed subject-class.resx">
-      <DependentUpon>201805111302162_changed subject-class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805112014545_BulletinType added.resx">
-      <DependentUpon>201805112014545_BulletinType added.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.resx">
+      <DependentUpon>201805172034017_Explicit fk in subject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

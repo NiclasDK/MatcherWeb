@@ -9,10 +9,20 @@ namespace ITMatcherWeb.Models
 {
     public class Subject
     {
-        public string SubjectId { get; set; }
+        [Key]
+        public int SubjectId { get; set; }
         public string Name { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public int PercievedLevelOfSkill { get; set; }
+        public PercievedLevelOfSkill PercievedLevelOfSkill { get; set; }
+        public int JobExperienceId { get; set; }
+    }
+
+    public enum PercievedLevelOfSkill
+    {
+        Basic,
+        Good,
+        Excellent,
+        native,
     }
 }

@@ -5,7 +5,8 @@ namespace ITMatcherWeb.Models
 {
     public class Language
     {
-        public string LanguageId { get; set; }
+        [Key]
+        public int LanguageId { get; set; }
         public string Name { get; set; }
         public LanguageMastery Mastery { get; set; }
         public virtual User ApplicationUser { get; set; }

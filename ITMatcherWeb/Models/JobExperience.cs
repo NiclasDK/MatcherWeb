@@ -9,6 +9,7 @@ namespace ITMatcherWeb.Models
 {
     public class JobExperience
     {
+        [Key]
         public int JobExperienceId { get; set; }
         public string Employer { get; set; }
         public DateTime? DateOfEmployment { get; set; }

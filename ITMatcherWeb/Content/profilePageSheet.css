@@ -1,18 +1,4 @@
-﻿#wrapper{
-    padding-left: 0;
-    margin-left: 0;
-}
-
-body {
-    padding-left: 0;
-    margin-left: 0;
-}
-
-html {
-    padding-left: 0;
-    margin-left: 0;
-}
-
+﻿
 /* Sidebar */
 #sidebar-wrapper {
     z-index: 1;

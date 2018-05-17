@@ -116,6 +116,12 @@ namespace ITMatcherWeb.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AddSubject(string id)
+        {
+            //var jobExperiences = db.JobExperiences.Where(j => user.)
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

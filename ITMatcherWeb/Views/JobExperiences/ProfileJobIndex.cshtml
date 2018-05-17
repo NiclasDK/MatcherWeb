@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ITMatcherWeb.Models.JobExperience>
+
+@{
+    ViewBag.Title = "ProfileJobIndex";
+}
+
+<h2>ProfileJobIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfEmployment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfExit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfEmployment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfExit)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobExperienceId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobExperienceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobExperienceId })|
+            @Html.ActionLink("Add subject", "../SubjectsController/SubjectList", new { id = item.JobExperienceId})
+        </td>
+    </tr>
+}
+
+</table>

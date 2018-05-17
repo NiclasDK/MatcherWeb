@@ -7,13 +7,13 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class BulletinTypeadded : IMigrationMetadata
+    public sealed partial class Explicitfkinsubject : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BulletinTypeadded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Explicitfkinsubject));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805112014545_BulletinType added"; }
+            get { return "201805172034017_Explicit fk in subject"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ITMatcherWeb.Models.Subject>
+
+@{
+    ViewBag.Title = "SubjectList";
+}
+
+<h2>SubjectList</h2>
+
+@{int subjId = ViewBag.subjectId; }
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = subjId})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercievedLevelOfSkill)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercievedLevelOfSkill)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SubjectId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SubjectId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SubjectId })
+            </td>
+        </tr>
+    }
+
+</table>

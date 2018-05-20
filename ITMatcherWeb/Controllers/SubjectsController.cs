@@ -120,7 +120,9 @@ namespace ITMatcherWeb.Controllers
 
         public ActionResult SubjectList(int id)
         {
-            if (id == null)
+            ViewBag.subjectId = id;
+
+            if (id.ToString()=="")
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

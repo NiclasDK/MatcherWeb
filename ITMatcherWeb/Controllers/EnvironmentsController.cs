@@ -28,7 +28,7 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Environment environment = db.Environments.Find(id);
+            Models.Environment environment = db.Environments.Find(id);
             if (environment == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Environment environment)
+        public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Environment environment = db.Environments.Find(id);
+            Models.Environment environment = db.Environments.Find(id);
             if (environment == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EnvironmentId,EnvironmentName")] Environment environment)
+        public ActionResult Edit([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Environment environment = db.Environments.Find(id);
+            Models.Environment environment = db.Environments.Find(id);
             if (environment == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Environment environment = db.Environments.Find(id);
+            Models.Environment environment = db.Environments.Find(id);
             db.Environments.Remove(environment);
             db.SaveChanges();
             return RedirectToAction("Index");

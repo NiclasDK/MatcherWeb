@@ -15,6 +15,7 @@ namespace ITMatcherWeb.Models
         public DateTime? DateOfEmployment { get; set; }
         public DateTime? DateOfExit { get; set; }
         public virtual ICollection<Subject> Subjects { get; set; }
+        public virtual ICollection<Title> Titles { get; set; }
         public virtual User ApplicationUser { get; set; }
     }
 }

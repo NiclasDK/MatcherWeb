@@ -11,7 +11,6 @@ namespace ITMatcherWeb.DataContexts
     //ApplicationUserDb
     public class ApplicationDbContext : IdentityDbContext<User>
     {
-
         public virtual DbSet<JobExperience> JobExperiences { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Certificate> Certificates { get; set; }
@@ -19,6 +18,7 @@ namespace ITMatcherWeb.DataContexts
         public virtual DbSet<Picture> Pictures { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Models.Environment> Environments { get; set; }
+        public virtual DbSet<Title> Titles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

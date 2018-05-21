@@ -221,6 +221,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.Designer.cs">
       <DependentUpon>201805211458312_Added environment to jobexp.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.Designer.cs">
+      <DependentUpon>201805212119187_Added required notation to subject.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -364,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.resx">
       <DependentUpon>201805211458312_Added environment to jobexp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.resx">
+      <DependentUpon>201805212119187_Added required notation to subject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

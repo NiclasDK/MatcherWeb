@@ -11,9 +11,11 @@ namespace ITMatcherWeb.Models
     {
         [Key]
         public int SubjectId { get; set; }
+        [Required]
         public string Name { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
+        [Required]
         public PercievedLevelOfSkill PercievedLevelOfSkill { get; set; }
         public int JobExperienceId { get; set; }
     }

@@ -217,6 +217,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.Designer.cs">
       <DependentUpon>201805211449548_Added title and environment.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.Designer.cs">
+      <DependentUpon>201805211458312_Added environment to jobexp.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.resx">
       <DependentUpon>201805211449548_Added title and environment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.resx">
+      <DependentUpon>201805211458312_Added environment to jobexp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

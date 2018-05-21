@@ -12,7 +12,11 @@ namespace ITMatcherWeb.Models
         [Key]
         public int JobExperienceId { get; set; }
         public string Employer { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Employment date")]
         public DateTime? DateOfEmployment { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Leave date")]
         public DateTime? DateOfExit { get; set; }
         public virtual ICollection<Subject> Subjects { get; set; }
         public virtual ICollection<Environment> Environments { get; set; }

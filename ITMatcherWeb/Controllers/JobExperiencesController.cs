@@ -25,8 +25,6 @@ namespace ITMatcherWeb.Controllers
             return View(jobExpList);
         }
 
-
-
         // GET: JobExperiences
         public ActionResult Index()
         {

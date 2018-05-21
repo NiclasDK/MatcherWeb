@@ -17,6 +17,8 @@ namespace ITMatcherWeb.DataContexts
         public virtual DbSet<Certificate> Certificates { get; set; }
         public virtual DbSet<Bulletin> Bulletins { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Models.Environment> Environments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,6 +50,5 @@ namespace ITMatcherWeb.DataContexts
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<ITMatcherWeb.Models.Subject> Subjects { get; set; }
     }
 }

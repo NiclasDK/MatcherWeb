@@ -193,6 +193,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EnvironmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobExperiencesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bulletin.cs" />
     <Compile Include="Models\Certificate.cs" />
+    <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Subject.cs" />
@@ -313,6 +315,11 @@
     <Content Include="Views\Subjects\Index.cshtml" />
     <Content Include="Views\JobExperiences\ProfileJobIndex.cshtml" />
     <Content Include="Views\Subjects\SubjectList.cshtml" />
+    <Content Include="Views\Environments\Create.cshtml" />
+    <Content Include="Views\Environments\Delete.cshtml" />
+    <Content Include="Views\Environments\Details.cshtml" />
+    <Content Include="Views\Environments\Edit.cshtml" />
+    <Content Include="Views\Environments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

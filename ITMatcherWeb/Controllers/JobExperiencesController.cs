@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity;
 
 namespace ITMatcherWeb.Controllers
 {
+    [Authorize]
     public class JobExperiencesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

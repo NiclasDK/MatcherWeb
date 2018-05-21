@@ -213,6 +213,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.Designer.cs">
       <DependentUpon>201805172034017_Explicit fk in subject.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.Designer.cs">
+      <DependentUpon>201805211449548_Added title and environment.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -350,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.resx">
       <DependentUpon>201805172034017_Explicit fk in subject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.resx">
+      <DependentUpon>201805211449548_Added title and environment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

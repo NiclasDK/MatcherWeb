@@ -11,6 +11,7 @@ using ITMatcherWeb.Models;
 
 namespace ITMatcherWeb.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

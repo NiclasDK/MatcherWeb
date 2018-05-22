@@ -225,6 +225,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.Designer.cs">
       <DependentUpon>201805212119187_Added required notation to subject.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805221226115_Education added.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805221226115_Education added.Designer.cs">
+      <DependentUpon>201805221226115_Education added.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,6 +236,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bulletin.cs" />
     <Compile Include="Models\Certificate.cs" />
+    <Compile Include="Models\Education.cs" />
     <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Picture.cs" />
@@ -371,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.resx">
       <DependentUpon>201805212119187_Added required notation to subject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805221226115_Education added.resx">
+      <DependentUpon>201805221226115_Education added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

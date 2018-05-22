@@ -19,18 +19,6 @@ namespace ITMatcherWeb
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-
-            //routes.MapRoute(
-            //name: "profilePage",
-            //url: "{controller}/{action}",
-            //defaults: new { controller = "Profile", action = "profilePage"}
-            //);
-
-            //routes.MapRoute(
-            //name: "AddSubject",
-            //url: "{controller}/{action}/{id}",
-            //defaults: new { controller = "Subject", action = "Create", id=UrlParameter.Optional }
-            //);
         }
     }
 }

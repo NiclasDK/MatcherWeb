@@ -9,8 +9,6 @@ namespace ITMatcherWeb.Controllers
 {
     public class ProfileController : Controller
     {
-        //Get ID of current user -> Get role of current user -> Pass to view.
-        // GET: Profile
         [Authorize]
         public ActionResult Profile()
         {

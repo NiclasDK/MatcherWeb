@@ -25,6 +25,7 @@ namespace ITMatcherWeb.Models
         public ICollection<JobExperience> JobExperiences { get; set; }
         public ICollection<Language> Languages { get; set; }
         public ICollection<Certificate> Certificates { get; set; }
+        public ICollection<Education> educations { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

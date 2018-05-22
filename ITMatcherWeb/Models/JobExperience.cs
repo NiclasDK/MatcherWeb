@@ -11,6 +11,7 @@ namespace ITMatcherWeb.Models
     {
         [Key]
         public int JobExperienceId { get; set; }
+        [Required]
         public string Employer { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Employment date")]

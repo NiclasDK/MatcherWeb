@@ -6,6 +6,7 @@
         public string EducationName { get; set; }
         public EducationLevel EducationLevel { get; set; }
         public string SchoolName{ get; set; }
+        public virtual User ApplicationUser { get; set; }
     }
 
     public enum EducationLevel

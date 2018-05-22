@@ -22,10 +22,10 @@ namespace ITMatcherWeb.Models
         public DateTime? DateOfBirth { get; set; }
         public String FirstName { get; set; }
         public string LastName { get; set; }
-        public ICollection<JobExperience> JobExperiences { get; set; }
-        public ICollection<Language> Languages { get; set; }
-        public ICollection<Certificate> Certificates { get; set; }
-        public ICollection<Education> educations { get; set; }
+        public virtual ICollection<JobExperience> JobExperiences { get; set; }
+        public virtual ICollection<Language> Languages { get; set; }
+        public virtual ICollection<Certificate> Certificates { get; set; }
+        public virtual ICollection<Education> Educations { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

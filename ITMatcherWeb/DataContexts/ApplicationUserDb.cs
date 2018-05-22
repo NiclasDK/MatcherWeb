@@ -38,6 +38,11 @@ namespace ITMatcherWeb.DataContexts
             .HasMany(u => u.JobExperiences)
             .WithRequired(j => j.ApplicationUser)
             .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<User>()
+            .HasMany(u => u.Educations)
+            .WithRequired(e => e.ApplicationUser)
+            .WillCascadeOnDelete(true);
         }
 
         public ApplicationDbContext() : base("DefaultConnection")

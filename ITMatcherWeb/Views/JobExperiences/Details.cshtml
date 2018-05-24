@@ -1,5 +1,4 @@
 ﻿@model ITMatcherWeb.Models.JobExperience
-@using ITMatcherWeb.Models;
 
 @{
     ViewBag.Title = "Details";
@@ -9,15 +8,8 @@
 
 <div>
     <h4>JobExperience</h4>
-    <hr />
-    @{var subjectList = new List<Subject>();}
-    @{var list = Model.Subjects.ToList();
-        foreach (var sub in list) {
-            if (sub.JobExperienceId == Model.JobExperienceId) {
-                subjectList.Add(sub);
-            }
-        }
-     }
+    
+    <hr/>
 
     <dl class="dl-horizontal">
         <dt>
@@ -48,12 +40,36 @@
             Subjects
         </dt>
 
-        @foreach (var sub in subjectList)
+        @foreach (var sub in Model.Subjects.ToList())
         {
-        <dd>
-            @sub.Name
-        </dd>
+            <dd>
+                @sub.Name
+            </dd>
         }
+
+        <dt>
+            Environments
+        </dt>
+
+        @foreach (var env in Model.Environments.ToList())
+        {
+            <dd>
+                @env.EnvironmentName
+            </dd>
+        }
+
+        <dt>
+            Titles
+        </dt>
+
+        @foreach (var tit in Model.Titles.ToList())
+        {
+            <dd>
+                @tit.TitleName
+            </dd>
+        }
+        <dd>
+        </dd>
     </dl>
 </div>
 <p>

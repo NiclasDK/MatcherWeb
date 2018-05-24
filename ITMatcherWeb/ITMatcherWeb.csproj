@@ -229,6 +229,18 @@
     <Compile Include="DataContexts\IdentityMigrations\201805221226115_Education added.Designer.cs">
       <DependentUpon>201805221226115_Education added.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805221231357_virtual props for User.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805221231357_virtual props for User.Designer.cs">
+      <DependentUpon>201805221231357_virtual props for User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805242021227_added clause and datepicker annotation.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805242021227_added clause and datepicker annotation.Designer.cs">
+      <DependentUpon>201805242021227_added clause and datepicker annotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.Designer.cs">
+      <DependentUpon>201805242023025_add migrations2.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,6 +248,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bulletin.cs" />
     <Compile Include="Models\Certificate.cs" />
+    <Compile Include="Models\Clause.cs" />
     <Compile Include="Models\Education.cs" />
     <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\Language.cs" />
@@ -379,6 +392,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805221226115_Education added.resx">
       <DependentUpon>201805221226115_Education added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805221231357_virtual props for User.resx">
+      <DependentUpon>201805221231357_virtual props for User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805242021227_added clause and datepicker annotation.resx">
+      <DependentUpon>201805242021227_added clause and datepicker annotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.resx">
+      <DependentUpon>201805242023025_add migrations2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,6 +11,7 @@ namespace ITMatcherWeb.Models
     {
         [Key]
         public int BulletinId { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? DateAdded { get; set; }
         public string Headline { get; set; }
         public string Text { get; set; }

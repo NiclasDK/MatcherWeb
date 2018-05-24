@@ -8,7 +8,7 @@ using System.Web;
 
 namespace ITMatcherWeb.DataContexts
 {
-    //ApplicationUserDb
+
     public class ApplicationDbContext : IdentityDbContext<User>
     {
         public virtual DbSet<JobExperience> JobExperiences { get; set; }
@@ -19,6 +19,8 @@ namespace ITMatcherWeb.DataContexts
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Models.Environment> Environments { get; set; }
         public virtual DbSet<Title> Titles { get; set; }
+        public virtual DbSet<Education> Educations { get; set; }
+        public virtual DbSet<Clause> Clauses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,7 +31,8 @@ namespace ITMatcherWeb.DataContexts
 
             modelBuilder.Entity<Bulletin>()
             .HasOptional(b => b.Picture)
-            .WithRequired(p => p.Bulletin);
+            .WithRequired(p => p.Bulletin)
+            .WillCascadeOnDelete(true);
 
             //Creates relation between user and jobexperiences. 
             //User is required for jobExperience to exist.
@@ -42,6 +45,11 @@ namespace ITMatcherWeb.DataContexts
             modelBuilder.Entity<User>()
             .HasMany(u => u.Educations)
             .WithRequired(e => e.ApplicationUser)
+            .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<User>()
+            .HasMany(u => u.Certificates)
+            .WithRequired(c => c.ApplicationUser)
             .WillCascadeOnDelete(true);
         }
 

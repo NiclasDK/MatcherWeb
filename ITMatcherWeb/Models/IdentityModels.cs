@@ -19,6 +19,7 @@ namespace ITMatcherWeb.Models
         [Display(Name = "Expected hourly salary")]
         public int ExpectedHourlySalary { get; set;}
         public Boolean Gender { get; set;}
+        [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
         public String FirstName { get; set; }
         public string LastName { get; set; }

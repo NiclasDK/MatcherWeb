@@ -10,6 +10,7 @@ namespace ITMatcherWeb.Models
         public string Name { get; set; }
         public LanguageMastery Mastery { get; set; }
         public virtual User ApplicationUser { get; set; }
+        public bool isAccepted { get; set; }
     }
 
     public enum LanguageMastery

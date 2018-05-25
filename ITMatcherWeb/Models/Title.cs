@@ -10,5 +10,6 @@ namespace ITMatcherWeb.Models
         public int TitleId { get; set; }
         public string TitleName { get; set; }
         public Boolean IsAccepted { get; set; } = false;
+        public virtual JobExperience JobExperience { get; set; }
     }
 }

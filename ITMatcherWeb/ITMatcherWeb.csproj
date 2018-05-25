@@ -241,6 +241,14 @@
     <Compile Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.Designer.cs">
       <DependentUpon>201805242023025_add migrations2.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805251049057_User language mappping.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805251049057_User language mappping.Designer.cs">
+      <DependentUpon>201805251049057_User language mappping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.Designer.cs">
+      <DependentUpon>201805251112019_added isAccepted to objects.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -348,7 +356,6 @@
     <Content Include="Views\Subjects\SubjectList.cshtml" />
     <Content Include="Views\Environments\Create.cshtml" />
     <Content Include="Views\Environments\Delete.cshtml" />
-    <Content Include="Views\Environments\Details.cshtml" />
     <Content Include="Views\Environments\Edit.cshtml" />
     <Content Include="Views\Environments\Index.cshtml" />
   </ItemGroup>
@@ -401,6 +408,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.resx">
       <DependentUpon>201805242023025_add migrations2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805251049057_User language mappping.resx">
+      <DependentUpon>201805251049057_User language mappping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.resx">
+      <DependentUpon>201805251112019_added isAccepted to objects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

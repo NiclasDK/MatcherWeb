@@ -12,5 +12,6 @@ namespace ITMatcherWeb.Models
         public string workplace { get; set; }
         [DataType(DataType.Date)]
         public DateTime endDate { get; set; }
+        public virtual User ApplicationUser { get; set; }
     }
 }

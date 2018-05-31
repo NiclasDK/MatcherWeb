@@ -48,6 +48,11 @@ namespace ITMatcherWeb.DataContexts
             .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<User>()
+            .HasMany(u => u.Clauses)
+            .WithRequired(c => c.ApplicationUser)
+            .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<User>()
             .HasMany(u => u.Languages)
             .WithRequired(e => e.ApplicationUser)
             .WillCascadeOnDelete(true);

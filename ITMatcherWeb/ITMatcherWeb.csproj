@@ -249,6 +249,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.Designer.cs">
       <DependentUpon>201805251112019_added isAccepted to objects.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201805311617096_User clauses.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201805311617096_User clauses.Designer.cs">
+      <DependentUpon>201805311617096_User clauses.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -414,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.resx">
       <DependentUpon>201805251112019_added isAccepted to objects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805311617096_User clauses.resx">
+      <DependentUpon>201805311617096_User clauses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

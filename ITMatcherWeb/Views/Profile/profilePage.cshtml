@@ -22,7 +22,9 @@
                 <li>
                     @Html.ActionLink("Job experience", "ProfileJobIndex", "JobExperiences", new { @class = "elements" }, null)
                 </li>
-                <li><a href="#">Job experience</a></li>
+                <li>
+                    @Html.ActionLink("Edit user", "Index", "Manage", new { @class = "elements" }, null)
+                </li>
                 <li><a href="#">Profile details</a></li>
                 <li><a href="#">Userroles</a></li>
                 <li><a href="#">Consultants</a></li>
@@ -37,7 +39,8 @@
                         <a href="#" class="btn btn-success" id="menu-toggle">Menu</a>
                         <div>
                             <h1>Profile</h1>
-                            
+                            <hr />
+
                         </div>
                     </div>
                 </div>

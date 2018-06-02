@@ -27,7 +27,6 @@ namespace ITMatcherWeb.Models
     {
         Basic,
         Good,
-        Excellent,
-        native,
+        Excellent
     }
 }

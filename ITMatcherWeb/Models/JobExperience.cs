@@ -23,6 +23,6 @@ namespace ITMatcherWeb.Models
         public virtual ICollection<Environment> Environments { get; set; }
         public virtual ICollection<Title> Titles { get; set; }
         public virtual User ApplicationUser { get; set; }
-        public bool isAccepted { get; set; }
+        public bool IsAccepted { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace ITMatcherWeb.Models
         public virtual ICollection<Certificate> Certificates { get; set; }
         public virtual ICollection<Education> Educations { get; set; }
         public virtual ICollection<Clause> Clauses { get; set; }
+        public virtual ICollection<Business> Businesses { get; set; } 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

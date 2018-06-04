@@ -29,6 +29,9 @@ namespace ITMatcherWeb.DataContexts
             modelBuilder.Entity<JobExperience>()
             .HasMany(j => j.Subjects);
 
+            modelBuilder.Entity<User>()
+            .HasMany(u => u.Businesses);
+
             modelBuilder.Entity<Bulletin>()
             .HasOptional(b => b.Picture)
             .WithRequired(p => p.Bulletin)
@@ -73,5 +76,6 @@ namespace ITMatcherWeb.DataContexts
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<ITMatcherWeb.Models.Business> Businesses { get; set; }
     }
 }

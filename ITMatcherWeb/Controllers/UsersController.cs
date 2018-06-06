@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -95,6 +96,27 @@ namespace ITMatcherWeb.Controllers
             }
 
             return View(user);
+        }
+
+        public void ExtractToCsv(string id)
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.WriteLine("\"First name\",\"Last name\"");
+
+            Response.ClearContent();
+            Response.AddHeader("content-disposition","attachment;filename=exportedConsultents.csv");
+            Response.ContentType = "text/csv";
+
+            var user = db.Users.Find(id);
+
+            sw.WriteLine(string.Format("\"{0}\",\"{1}\"",
+                user.FirstName,
+                user.LastName
+                ));
+
+            Response.Write(sw.ToString());
+            Response.End();
         }
 
         // GET: Users/Edit/5

@@ -1,4 +1,5 @@
 ﻿using ITMatcherWeb.DataContexts;
+using ITMatcherWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,14 @@ namespace ITMatcherWeb.Controllers
 
         public ActionResult Index()
         {
+            /*
+            if ((from b in db.Bulletins select b.Type == BulletinType.ABOUT).Any()) {
+                ViewBag.aboutText = db.Bulletins
+                    .Where(b => b.Type == BulletinType.ABOUT);
+            }*/
 
-            /*Project ledere*/
+
+            /*Project Managers*/
             if ((from u in db.Users
                  from j in u.JobExperiences
                  from s in j.Subjects

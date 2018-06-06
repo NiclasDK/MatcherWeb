@@ -17,9 +17,46 @@ namespace ITMatcherWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Users
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Users.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.LastNameSortParm = sortOrder == "LastName" ? "lastname_desc" : "LastName";
+            ViewBag.EmailSortParm = sortOrder == "Email" ? "email_desc" : "Email";
+            ViewBag.SalSortParm = sortOrder == "Salary" ? "sal_desc" : "Salary";
+
+            var users = from u in db.Users
+                           select u;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    users = users.OrderByDescending(s => s.FirstName);
+                    break;
+                case "lastname_desc":
+                    users = users.OrderByDescending(s => s.LastName);
+                    break;
+                case "LastName":
+                    users = users.OrderBy(s => s.LastName);
+                    break;
+                case "expec_sal":
+                    users = users.OrderByDescending(s => s.ExpectedHourlySalary);
+                    break;
+                case "Salary":
+                    users = users.OrderBy(s => s.ExpectedHourlySalary);
+                    break;
+                case "email_desc":
+                    users = users.OrderByDescending(s => s.Email);
+                    break;
+                case "Email":
+                    users = users.OrderBy(s => s.Email);
+                    break;
+                default:
+                    users = users.OrderBy(s => s.FirstName);
+                    break;
+            }
+
+            return View(users);
         }
 
         // GET: Users/Details/5

@@ -12,8 +12,7 @@ namespace ITMatcherWeb.Models
         public int BusinessId { get; set; }
         [Required]
         public string Name { get; set; }
-        public virtual JobExperience JobExperience { get; set; }
-        public int JobExperienceId { get; set; }
+        public virtual User ApplicationUser { get; set; }
         public bool IsAccepted { get; set; }
     }
 }

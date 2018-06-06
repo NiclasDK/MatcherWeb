@@ -12,25 +12,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Available)
+            Available
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivelySeeking)
+            Seeking job
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExpectedHourlySalary)
+            @Html.ActionLink("Exp. hourly salary", "Index", new { sortOrder = ViewBag.SalSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            Phone
         </th>
         <th></th>
     </tr>
@@ -61,8 +61,10 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            @Html.ActionLink("Add subjects", "AddSubject", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+            @Html.ActionLink("subjects", "AddSubject", new { id = item.Id }) |
+            @Html.ActionLink("Job", "AddJobexperience", new { id = item.Id }) |
+            @Html.ActionLink("Extract", "Extract", new { id = item.Id })
         </td>
     </tr>
 }

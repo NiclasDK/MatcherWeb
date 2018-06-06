@@ -18,8 +18,7 @@ namespace ITMatcherWeb.Controllers
         // GET: Businesses
         public ActionResult Index()
         {
-            var businesses = db.Businesses.Include(b => b.JobExperience);
-            return View(businesses.ToList());
+            return View(db.Businesses.ToList());
         }
 
         // GET: Businesses/Details/5
@@ -40,7 +39,6 @@ namespace ITMatcherWeb.Controllers
         // GET: Businesses/Create
         public ActionResult Create()
         {
-            ViewBag.JobExperienceId = new SelectList(db.JobExperiences, "JobExperienceId", "Employer");
             return View();
         }
 
@@ -49,7 +47,7 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BusinessId,Name,JobExperienceId")] Business business)
+        public ActionResult Create([Bind(Include = "BusinessId,Name,IsAccepted")] Business business)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +56,6 @@ namespace ITMatcherWeb.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.JobExperienceId = new SelectList(db.JobExperiences, "JobExperienceId", "Employer", business.JobExperienceId);
             return View(business);
         }
 
@@ -74,7 +71,6 @@ namespace ITMatcherWeb.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.JobExperienceId = new SelectList(db.JobExperiences, "JobExperienceId", "Employer", business.JobExperienceId);
             return View(business);
         }
 
@@ -83,7 +79,7 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BusinessId,Name,JobExperienceId")] Business business)
+        public ActionResult Edit([Bind(Include = "BusinessId,Name,IsAccepted")] Business business)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +87,6 @@ namespace ITMatcherWeb.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.JobExperienceId = new SelectList(db.JobExperiences, "JobExperienceId", "Employer", business.JobExperienceId);
             return View(business);
         }
 

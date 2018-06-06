@@ -262,6 +262,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201806041554148_Added business.Designer.cs">
       <DependentUpon>201806041554148_Added business.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.Designer.cs">
+      <DependentUpon>201806041606093_Removed business to jobexperience relation.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,6 +311,7 @@
     </Content>
     <Content Include="ClassDiagram1.cd" />
     <Content Include="ClassDiagram2.cd" />
+    <Content Include="ClassDiagram3.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -374,10 +379,10 @@
     <Content Include="Views\Environments\Delete.cshtml" />
     <Content Include="Views\Environments\Edit.cshtml" />
     <Content Include="Views\Environments\Index.cshtml" />
-    <Content Include="Views\Business\Index.cshtml" />
-    <Content Include="Views\Business\Create.cshtml" />
-    <Content Include="Views\Business\Delete.cshtml" />
-    <Content Include="Views\Business\Edit.cshtml" />
+    <Content Include="Views\Businesses\Create.cshtml" />
+    <Content Include="Views\Businesses\Delete.cshtml" />
+    <Content Include="Views\Businesses\Edit.cshtml" />
+    <Content Include="Views\Businesses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201806041554148_Added business.resx">
       <DependentUpon>201806041554148_Added business.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.resx">
+      <DependentUpon>201806041606093_Removed business to jobexperience relation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

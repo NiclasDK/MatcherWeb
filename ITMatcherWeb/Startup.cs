@@ -42,7 +42,7 @@ namespace ITMatcherWeb
 
             }
 
-            // creating Creating Employee role    
+            // creating Creating Admin3 role    
             if (!roleManager.RoleExists("Admin3"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
@@ -61,8 +61,24 @@ namespace ITMatcherWeb
                 //Add default User to Role Admin   
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin3");
+                    var result = UserManager.AddToRole(user.Id, "Admin3");
+                }
+            }
 
+            if (roleManager.RoleExists("Admin3")) {
+                //Here we create a Admin super user who will maintain the website                  
+                var user = new User();
+                user.UserName = "Per";
+                user.Email = "per.bengtsen@it-matcher.dk";
+
+                string userPWD = "asdasd1";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Admin   
+                if (chkUser.Succeeded)
+                {
+                    var result = UserManager.AddToRole(user.Id, "Admin3");
                 }
             }
 

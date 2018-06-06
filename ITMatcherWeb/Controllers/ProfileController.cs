@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using ITMatcherWeb.DataContexts;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 
 namespace ITMatcherWeb.Controllers
 {
@@ -18,13 +19,9 @@ namespace ITMatcherWeb.Controllers
         public ActionResult Profile()
         {
             var UserId = User.Identity.GetUserId();
-            var jobExpList = db.JobExperiences.Where(j => j.ApplicationUser.Id == UserId).ToList();
+            var user = db.Users.Where(u => u.Id == UserId).Include(j => j.JobExperiences).ToList();
 
-            if (jobExpList != null) { 
-                ViewBag.JobExpList = jobExpList;
-            }
-
-            return View("profilePage");
+            return View("profilePage", user);
         }
     }
 }

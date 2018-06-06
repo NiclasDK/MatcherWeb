@@ -1,4 +1,4 @@
-﻿@model ITMatcherWeb.Models.User
+﻿@model IEnumerable<ITMatcherWeb.Models.User>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +41,23 @@
                             <h1>Profile</h1>
                             <hr />
 
+                            <h3>Ealier jobs</h3>
+                            <hr />
+                            
+                            @if (Model.Any()) { 
+                            foreach (var i in Model) {
+                                foreach (var j in i.JobExperiences) {
+                                    <h5>@j.Employer</h5>
+                                        foreach (var s in j.Subjects) {
+                                            <p>@s.Name</p>
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <p>No jobs registered</p>
+                            }
                         </div>
                     </div>
                 </div>

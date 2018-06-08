@@ -266,6 +266,22 @@
     <Compile Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.Designer.cs">
       <DependentUpon>201806041606093_Removed business to jobexperience relation.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806081152297_Removed address.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806081152297_Removed address.Designer.cs">
+      <DependentUpon>201806081152297_Removed address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806081219293_zipcode + city in User-class %28NF3%29 .cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806081219293_zipcode + city in User-class %28NF3%29 .Designer.cs">
+      <DependentUpon>201806081219293_zipcode + city in User-class %28NF3%29 .cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806081327427_Subj jobexp non-virtual.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806081327427_Subj jobexp non-virtual.Designer.cs">
+      <DependentUpon>201806081327427_Subj jobexp non-virtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.Designer.cs">
+      <DependentUpon>201806081328529_removed req jobexp from subj.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -451,6 +467,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.resx">
       <DependentUpon>201806041606093_Removed business to jobexperience relation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081152297_Removed address.resx">
+      <DependentUpon>201806081152297_Removed address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081219293_zipcode + city in User-class %28NF3%29 .resx">
+      <DependentUpon>201806081219293_zipcode + city in User-class %28NF3%29 .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081327427_Subj jobexp non-virtual.resx">
+      <DependentUpon>201806081327427_Subj jobexp non-virtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.resx">
+      <DependentUpon>201806081328529_removed req jobexp from subj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

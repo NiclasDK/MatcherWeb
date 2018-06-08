@@ -17,8 +17,7 @@ namespace ITMatcherWeb.Models
         public DateTime? StartTime { get; set; }
         [DataType(DataType.Date)]
         public DateTime? EndTime { get; set; }
-        [Required]
-        public virtual JobExperience JobExperience { get; set; }
+        public JobExperience JobExperience { get; set; }
         public PercievedLevelOfSkill PercievedLevelOfSkill { get; set; }
         public int JobExperienceId { get; set; }
     }

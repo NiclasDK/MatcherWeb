@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using ITMatcherWeb.Models;
 using System.Data.Entity;
+using System.Linq;
 
 [assembly: OwinStartupAttribute(typeof(ITMatcherWeb.Startup))]
 namespace ITMatcherWeb
@@ -49,38 +50,22 @@ namespace ITMatcherWeb
                 role.Name = "Admin3";
                 roleManager.Create(role);
 
-                //Here we create a Admin super user who will maintain the website                  
                 var user = new User();
-                user.UserName = "Per";
-                user.Email = "per.bengtsen@it-matcher.dk";
+                user.UserName = "admin@admin.dk";
+                user.Email = "admin@admin.dk";
 
                 string userPWD = "asdasd1";
 
                 var chkUser = UserManager.Create(user, userPWD);
 
-                //Add default User to Role Admin   
+                //Add default User to Role Admin  
                 if (chkUser.Succeeded)
                 {
-                    var result = UserManager.AddToRole(user.Id, "Admin3");
+                    var result = UserManager.AddToRole(user.Id, "Admin");
                 }
             }
 
-            if (roleManager.RoleExists("Admin3")) {
-                //Here we create a Admin super user who will maintain the website                  
-                var user = new User();
-                user.UserName = "Per";
-                user.Email = "per.bengtsen@it-matcher.dk";
 
-                string userPWD = "asdasd1";
-
-                var chkUser = UserManager.Create(user, userPWD);
-
-                //Add default User to Role Admin   
-                if (chkUser.Succeeded)
-                {
-                    var result = UserManager.AddToRole(user.Id, "Admin3");
-                }
-            }
 
             if (!roleManager.RoleExists("Consultant"))
             {

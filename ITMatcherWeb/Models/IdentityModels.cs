@@ -14,14 +14,19 @@ namespace ITMatcherWeb.Models
     public class User : IdentityUser
     {
         public Boolean Available { get; set; }
+        [Display(Name = "Actively seeking")]
         public Boolean ActivelySeeking { get; set; }
+        [Display(Name = "Accepted data use")]
         public Boolean AcceptedUseOfData { get; set; }
         [Display(Name = "Expected hourly salary")]
         public int ExpectedHourlySalary { get; set;}
-        public Boolean Gender { get; set;}
+        public Gender Gender { get; set;}
         [DataType(DataType.Date)]
+        [Display(Name = "Date of birth")]
         public DateTime? DateOfBirth { get; set; }
+        [Display(Name = "First name")]
         public String FirstName { get; set; }
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
         public string Zipcode { get; set; }
         public string City { get; set; }
@@ -39,6 +44,11 @@ namespace ITMatcherWeb.Models
             // Add custom user claims here
             return userIdentity;
         }
+    }
+
+    public enum Gender
+    {
+        Male, Female
     }
 
 }

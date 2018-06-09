@@ -15,12 +15,6 @@ namespace ITMatcherWeb.Controllers
 
         public ActionResult Index()
         {
-            /*
-            if ((from b in db.Bulletins select b.Type == BulletinType.ABOUT).Any()) {
-                ViewBag.aboutText = db.Bulletins
-                    .Where(b => b.Type == BulletinType.ABOUT);
-            }*/
-
 
             /*Project Managers*/
             if ((from u in db.Users

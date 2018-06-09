@@ -21,6 +21,18 @@ namespace ITMatcherWeb.Controllers
             return View(db.Businesses.ToList());
         }
 
+        public ActionResult BusinessList(int id)
+        {
+            ViewBag.BusinessId = id;
+
+            if (id.ToString() == "")
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var BusinessList = db.Businesses.Where(b => b.BusinessId == id).ToList();
+            return View(BusinessList);
+        }
+
         // GET: Businesses/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,6 +61,7 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BusinessId,Name,IsAccepted")] Business business)
         {
+
             if (ModelState.IsValid)
             {
                 db.Businesses.Add(business);
@@ -73,6 +86,8 @@ namespace ITMatcherWeb.Controllers
             }
             return View(business);
         }
+
+        
 
         // POST: Businesses/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

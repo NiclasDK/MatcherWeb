@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using ITMatcherWeb.DataContexts;
 using ITMatcherWeb.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ITMatcherWeb.Controllers
 {
@@ -98,6 +99,7 @@ namespace ITMatcherWeb.Controllers
             return View(user);
         }
 
+        [Authorize(Roles = "Admin3")]
         public void ExtractToCsv(string id)
         {
             StringWriter sw = new StringWriter();
@@ -139,12 +141,32 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Available,ActivelySeeking,AcceptedUseOfData,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] User user)
+        public ActionResult Edit([Bind(Include = "Available,ActivelySeeking,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,PhoneNumber, Zipcode, City")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                string id = User.Identity.GetUserId();
+                var existingUser = db.Users.Single(u => u.Id == id);
+                existingUser.Available = user.Available;
+                existingUser.ActivelySeeking = user.ActivelySeeking;
+                existingUser.ExpectedHourlySalary = user.ExpectedHourlySalary;
+                existingUser.Gender = user.Gender;
+                existingUser.DateOfBirth = user.DateOfBirth;
+                existingUser.FirstName = user.FirstName;
+                existingUser.LastName = user.LastName;
+                existingUser.Email = user.Email;
+                existingUser.PhoneNumber = user.PhoneNumber;
+                existingUser.Zipcode = user.Zipcode;
+                existingUser.City = user.City;
+
+
+                // etc.
                 db.SaveChanges();
+
+
+
+                //db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(user);

@@ -13,9 +13,11 @@ namespace ITMatcherWeb.Models
         public int JobExperienceId { get; set; }
         [Required]
         public string Employer { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Employment date")]
         public DateTime? DateOfEmployment { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Leave date")]
         public DateTime? DateOfExit { get; set; }

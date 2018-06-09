@@ -25,9 +25,15 @@
                 <li>
                     @Html.ActionLink("Edit user", "Index", "Manage", new { @class = "elements" }, null)
                 </li>
+
+                @if (Roles.IsUserInRole("Admin3"))
+                {
                 <li><a href="#">Profile details</a></li>
                 <li><a href="#">Userroles</a></li>
-                <li><a href="#">Consultants</a></li>
+                <li><a href="#">Consultants</a></li>                
+                }
+
+
             </ul>
         </div>
 
@@ -44,20 +50,48 @@
                             <h3>Ealier jobs</h3>
                             <hr />
                             
-                            @if (Model.Any()) { 
-                            foreach (var i in Model) {
-                                foreach (var j in i.JobExperiences) {
-                                    <h5>@j.Employer</h5>
-                                        foreach (var s in j.Subjects) {
-                                            <p>@s.Name</p>
+                            @if (Model.Any()) {
+                                foreach (var i in Model) {
+                                    if (i.JobExperiences.Any()) {
+                                        foreach (var j in i.JobExperiences)
+                                        {
+                                    <h3>@j.Employer: period: @j.DateOfEmployment - @j.DateOfExit</h3>
+                                        <b>Titles</b>
+                                            if (j.Titles.Any() == false)
+                                            {
+                                            <p>No titles added</p>
+                                            }
+                                            else
+                                            {
+                                                foreach (var t in j.Titles)
+                                                {
+                                            <p>@t.TitleName</p>
+                                                }
+                                            }
+                                            
+                                            <b>Subjects</b>
+
+                                            if (j.Subjects.Any() == false)
+                                            {
+                                            <p>No subjects added - Add subject through "Job Experiences" in menu, then add subject</p>
+                                            }
+                                            else
+                                            {
+                                                foreach (var s in j.Subjects)
+                                                {
+                                                <p>@s.Name</p>
+                                                }
+                                            }
+
                                         }
+                                    }
+                                    else
+                                    {
+                                        <p>No job experiences added - Go to Job Experiences in menu</p>
                                     }
                                 }
                             }
-                            else
-                            {
-                                <p>No jobs registered</p>
-                            }
+
                         </div>
                     </div>
                 </div>
@@ -68,9 +102,9 @@
     <!-- Menu toggle script -->
     <script>
         $("#menu-toggle").click(function (e) {
-            e.preventDefault();
+                                e.preventDefault();
             $("#wrapper").toggleClass("menuDisplayed");
-        });
+                            });
     </script>
 
 </body>

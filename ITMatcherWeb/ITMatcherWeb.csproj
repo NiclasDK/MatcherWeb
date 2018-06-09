@@ -200,6 +200,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TitlesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataContexts\ApplicationUserDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.cs" />
@@ -281,6 +282,22 @@
     <Compile Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.Designer.cs">
       <DependentUpon>201806081328529_removed req jobexp from subj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806082203116_Namings-annotations changed.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806082203116_Namings-annotations changed.Designer.cs">
+      <DependentUpon>201806082203116_Namings-annotations changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806091636364_Test.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806091636364_Test.Designer.cs">
+      <DependentUpon>201806091636364_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806091829265_Added jobExp-id to Business.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806091829265_Added jobExp-id to Business.Designer.cs">
+      <DependentUpon>201806091829265_Added jobExp-id to Business.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806092004193_Changes to Titles.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806092004193_Changes to Titles.Designer.cs">
+      <DependentUpon>201806092004193_Changes to Titles.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -386,7 +403,6 @@
     <Content Include="Views\JobExperiences\Index.cshtml" />
     <Content Include="Views\Subjects\Create.cshtml" />
     <Content Include="Views\Subjects\Delete.cshtml" />
-    <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
     <Content Include="Views\JobExperiences\ProfileJobIndex.cshtml" />
@@ -399,6 +415,11 @@
     <Content Include="Views\Businesses\Delete.cshtml" />
     <Content Include="Views\Businesses\Edit.cshtml" />
     <Content Include="Views\Businesses\Index.cshtml" />
+    <Content Include="Views\Titles\Create.cshtml" />
+    <Content Include="Views\Titles\Delete.cshtml" />
+    <Content Include="Views\Titles\Edit.cshtml" />
+    <Content Include="Views\Titles\Index.cshtml" />
+    <Content Include="Views\Titles\TitlesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -479,6 +500,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.resx">
       <DependentUpon>201806081328529_removed req jobexp from subj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806082203116_Namings-annotations changed.resx">
+      <DependentUpon>201806082203116_Namings-annotations changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806091636364_Test.resx">
+      <DependentUpon>201806091636364_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806091829265_Added jobExp-id to Business.resx">
+      <DependentUpon>201806091829265_Added jobExp-id to Business.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806092004193_Changes to Titles.resx">
+      <DependentUpon>201806092004193_Changes to Titles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

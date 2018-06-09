@@ -11,124 +11,124 @@ using ITMatcherWeb.Models;
 
 namespace ITMatcherWeb.Controllers
 {
-    [Authorize]
-    public class SubjectsController : Controller
+    public class TitlesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Subjects
+        // GET: Titles
         public ActionResult Index()
         {
-            return View(db.Subjects.ToList());
+            return View(db.Titles.ToList());
         }
 
-        // GET: Subjects/Details/5
-        public ActionResult Details(string id)
+        public ActionResult TitlesList(int id)
+        {
+            ViewBag.TitleId = id;
+
+            if (id.ToString() == "")
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var TitleList = db.Titles.Where(t => t.TitleId == id).ToList();
+            return View(TitleList);
+        }
+
+        // GET: Titles/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject subject = db.Subjects.Find(id);
-            if (subject == null)
+            Title title = db.Titles.Find(id);
+            if (title == null)
             {
                 return HttpNotFound();
             }
-            return View(subject);
+            return View(title);
         }
 
-        // GET: Subjects/Create
+        // GET: Titles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Subjects/Create
+        // POST: Titles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject, int id)
+        public ActionResult Create([Bind(Include = "TitleId,TitleName,IsAccepted")] Title title, int id)
         {
-            subject.JobExperienceId = id;
+
+            title.JobExperienceId = id;
 
             if (ModelState.IsValid)
             {
-                db.Subjects.Add(subject);
+                db.Titles.Add(title);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(subject);
+            return View(title);
         }
 
-        // GET: Subjects/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Titles/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject subject = db.Subjects.Find(id);
-            if (subject == null)
+            Title title = db.Titles.Find(id);
+            if (title == null)
             {
                 return HttpNotFound();
             }
-            return View(subject);
+            return View(title);
         }
 
-        // POST: Subjects/Edit/5
+        // POST: Titles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject)
+        public ActionResult Edit([Bind(Include = "TitleId,TitleName,IsAccepted")] Title title)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(subject).State = EntityState.Modified;
+                db.Entry(title).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(subject);
+            return View(title);
         }
 
-        // GET: Subjects/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Titles/Delete/5
+        public ActionResult Delete(int? id)
         {
-            if (id.Equals(""))
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subject subject = db.Subjects.Find(id);
-            if (subject == null)
+            Title title = db.Titles.Find(id);
+            if (title == null)
             {
                 return HttpNotFound();
             }
-            return View(subject);
+            return View(title);
         }
 
-        // POST: Subjects/Delete/5
+        // POST: Titles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Subject subject = db.Subjects.Find(id);
-            db.Subjects.Remove(subject);
+            Title title = db.Titles.Find(id);
+            db.Titles.Remove(title);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult SubjectList(int id)
-        {
-            ViewBag.subjectId = id;
-
-            if (id.ToString()=="")
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var subjectList = db.Subjects.Where(s => s.SubjectId == id).ToList();
-            return View(subjectList);
         }
 
         protected override void Dispose(bool disposing)

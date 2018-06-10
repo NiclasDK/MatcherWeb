@@ -40,34 +40,43 @@
             Subjects
         </dt>
 
+        <dd>
+            <!--Spacing-->
+        </dd>
+
         @foreach (var sub in Model.Subjects.ToList())
-        {
-            <dd>
-                @sub.Name
-            </dd>
-        }
+    {
+        <dd>
+            @sub.Name
+        </dd>
+}
 
         <dt>
             Environments
         </dt>
+        <dd>
+            <!--Spacing-->
+        </dd>
 
         @foreach (var env in Model.Environments.ToList())
-        {
-            <dd>
-                @env.EnvironmentName
-            </dd>
-        }
+    {
+        <dd>
+            @env.EnvironmentName
+        </dd>
+}
 
         <dt>
             Titles
         </dt>
-
+        <dd>
+            <!--Spacing-->
+        </dd>
         @foreach (var tit in Model.Titles.ToList())
-        {
-            <dd>
-                @tit.TitleName
-            </dd>
-        }
+    {
+        <dd>
+            @tit.TitleName
+        </dd>
+}
         <dd>
         </dd>
     </dl>

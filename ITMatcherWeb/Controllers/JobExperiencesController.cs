@@ -52,6 +52,8 @@ namespace ITMatcherWeb.Controllers
             return View();
         }
 
+
+
         // POST: JobExperiences/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -66,7 +68,23 @@ namespace ITMatcherWeb.Controllers
             {
                     db.JobExperiences.Add(jobExperience);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ProfileJobIndex");
+            }
+
+            return View(jobExperience);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddJobFromAdmin([Bind(Include = "JobExperienceId,Employer,DateOfEmployment,DateOfExit")] JobExperience jobExperience, string id) {
+
+            jobExperience.ApplicationUser = db.Users.Where(x => x.Id == id).First();
+
+            if (ModelState.IsValid)
+            {
+                db.JobExperiences.Add(jobExperience);
+                db.SaveChanges();
+                return RedirectToAction("ProfileJobIndex");
             }
 
             return View(jobExperience);

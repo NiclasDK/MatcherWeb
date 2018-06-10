@@ -29,7 +29,7 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var TitleList = db.Titles.Where(t => t.TitleId == id).ToList();
+            var TitleList = db.Titles.Where(t => t.JobExperienceId == id).ToList();
             return View(TitleList);
         }
 
@@ -61,14 +61,13 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TitleId,TitleName,IsAccepted")] Title title, int id)
         {
-
             title.JobExperienceId = id;
 
             if (ModelState.IsValid)
             {
                 db.Titles.Add(title);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("TitlesList/"+id);
             }
 
             return View(title);

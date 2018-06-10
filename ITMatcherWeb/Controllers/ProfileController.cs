@@ -20,6 +20,7 @@ namespace ITMatcherWeb.Controllers
         {
             var UserId = User.Identity.GetUserId();
             var user = db.Users.Where(u => u.Id == UserId).Include(j => j.JobExperiences).ToList();
+            ViewBag.CurrentUserId = UserId;
 
             return View("profilePage", user);
         }

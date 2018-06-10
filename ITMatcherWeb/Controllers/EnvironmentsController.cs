@@ -22,6 +22,18 @@ namespace ITMatcherWeb.Controllers
             return View(db.Environments.ToList());
         }
 
+        public ActionResult EnvironmentList(int id)
+        {
+            ViewBag.environmentId = id;
+
+            if (id.ToString() == "")
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var EnvironmentList = db.Environments.Where(s => s.JobExperienceId == id).ToList();
+            return View(EnvironmentList);
+        }
+
         // GET: Environments/Details/5
         public ActionResult Details(int? id)
         {
@@ -48,13 +60,15 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment)
+        public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment, int id)
         {
+            environment.JobExperienceId = id;
+
             if (ModelState.IsValid)
             {
                 db.Environments.Add(environment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EnvironmentList/" + id);
             }
 
             return View(environment);

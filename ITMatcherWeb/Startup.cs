@@ -61,7 +61,7 @@ namespace ITMatcherWeb
                 //Add default User to Role Admin  
                 if (chkUser.Succeeded)
                 {
-                    var result = UserManager.AddToRole(user.Id, "Admin");
+                    var result = UserManager.AddToRole(user.Id, "Admin3");
                 }
             }
 

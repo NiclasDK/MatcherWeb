@@ -13,6 +13,8 @@
 </head>
 <body>
 
+    @{string currentUserId = ViewBag.CurrentUserId; }
+
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -23,15 +25,14 @@
                     @Html.ActionLink("Job experience", "ProfileJobIndex", "JobExperiences", new { @class = "elements" }, null)
                 </li>
                 <li>
-                    @Html.ActionLink("Edit user", "Index", "Manage", new { @class = "elements" }, null)
+                    @Html.ActionLink("Change password", "ChangePassword", "Manage", new { @class = "elements" }, null)
                 </li>
-
-                @if (Roles.IsUserInRole("Admin3"))
-                {
-                <li><a href="#">Profile details</a></li>
+                <li>
+                    @Html.ActionLink("Profile details", "Edit", "Users", new { @id = currentUserId }, null)
+                </li>
                 <li><a href="#">Userroles</a></li>
                 <li><a href="#">Consultants</a></li>                
-                }
+                
 
 
             </ul>
@@ -49,49 +50,69 @@
 
                             <h3>Ealier jobs</h3>
                             <hr />
-                            
-                            @if (Model.Any()) {
-                                foreach (var i in Model) {
-                                    if (i.JobExperiences.Any()) {
-                                        foreach (var j in i.JobExperiences)
-                                        {
-                                    <h3>@j.Employer: period: @j.DateOfEmployment - @j.DateOfExit</h3>
-                                        <b>Titles</b>
-                                            if (j.Titles.Any() == false)
-                                            {
-                                            <p>No titles added</p>
-                                            }
-                                            else
-                                            {
-                                                foreach (var t in j.Titles)
-                                                {
-                                            <p>@t.TitleName</p>
-                                                }
-                                            }
-                                            
-                                            <b>Subjects</b>
+                             @if (Model.Any())
+                             {
+                                 foreach (var i in Model)
+                                 {
+                                     if (i.JobExperiences.Any()==false)
+                                     {
+                                         <p>No job experiences currently added - add jobexp. through "Job experiences" in menu </p>
+                                     }    
+                                     else{
+                                         foreach (var j in i.JobExperiences)
+                                         {
+                                            <dl>
+                                                <dt>
+                                                    @j.Employer: period: @j.DateOfEmployment - @j.DateOfExit
+                                                </dt>
+                                                <dt>
+                                                    Titles
 
-                                            if (j.Subjects.Any() == false)
-                                            {
-                                            <p>No subjects added - Add subject through "Job Experiences" in menu, then add subject</p>
-                                            }
-                                            else
-                                            {
-                                                foreach (var s in j.Subjects)
-                                                {
-                                                <p>@s.Name</p>
-                                                }
-                                            }
-
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <p>No job experiences added - Go to Job Experiences in menu</p>
-                                    }
-                                }
-                            }
-
+                                                </dt>
+                                                    @if (j.Titles.Any() == false)
+                                                    {
+                                                        <dd>No titles added - Add title through "Job Experiences" in menu, then add title</dd>
+                                                    }
+                                                    else
+                                                    {
+                                                        foreach (var t in j.Titles)
+                                                        {
+                                                            <dd>@t.TitleName</dd>
+                                                        }
+                                                    }
+                                                <dt>
+                                                    Subjects
+                                                </dt>
+                                                    @if (j.Subjects.Any() == false)
+                                                    {
+                                                        <dd>No subjects added - Add subject through "Job Experiences" in menu, then add subject</dd>
+                                                    }
+                                                    else
+                                                    {
+                                                        foreach (var s in j.Subjects)
+                                                        {
+                                                            <dd>@s.Name</dd>
+                                                        }
+                                                    }
+                                                <dt>
+                                                    Environments
+                                                </dt>
+                                                    @if (j.Environments.Any() == false)
+                                                    {
+                                                        <dd>No environments added - Add environment through "Job Experiences" in menu, then add environment</dd>
+                                                    }
+                                                    else
+                                                    {
+                                                        foreach (var e in j.Environments)
+                                                        {
+                                                            <dd>@e.EnvironmentName</dd>
+                                                        }
+                                                    }
+                                            </dl><hr />
+                                         }
+                                     }
+                                 }
+                             }
                         </div>
                     </div>
                 </div>

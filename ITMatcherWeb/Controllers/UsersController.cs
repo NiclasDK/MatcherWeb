@@ -16,9 +16,12 @@ namespace ITMatcherWeb.Controllers
     [Authorize]
     public class UsersController : Controller
     {
+        
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Users
+        [Authorize(Roles = "Admin3")]
         public ActionResult Index(string sortOrder)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -82,24 +85,8 @@ namespace ITMatcherWeb.Controllers
             return View();
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Available,ActivelySeeking,AcceptedUseOfData,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(user);
-        }
-
-        [Authorize(Roles = "Admin3")]
+        [Authorize(Roles = "Admin3, Admin2")]
         public void ExtractToCsv(string id)
         {
             StringWriter sw = new StringWriter();
@@ -159,11 +146,8 @@ namespace ITMatcherWeb.Controllers
                 existingUser.Zipcode = user.Zipcode;
                 existingUser.City = user.City;
 
-
                 // etc.
                 db.SaveChanges();
-
-
 
                 //db.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 //db.SaveChanges();
@@ -196,12 +180,6 @@ namespace ITMatcherWeb.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public ActionResult AddSubject(string id)
-        {
-            //var jobExperiences = db.JobExperiences.Where(j => user.)
-            return View();
         }
 
         protected override void Dispose(bool disposing)

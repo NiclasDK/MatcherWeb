@@ -151,7 +151,13 @@ namespace ITMatcherWeb.Controllers
 
                 //db.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 //db.SaveChanges();
-                return RedirectToAction("Index");
+                if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
+                {
+                    return RedirectToAction("Index");
+                }
+                else {
+                    return RedirectToAction("Profile", "Profile");
+                }
             }
             return View(user);
         }
@@ -168,6 +174,8 @@ namespace ITMatcherWeb.Controllers
             {
                 return HttpNotFound();
             }
+
+            
             return View(user);
         }
 

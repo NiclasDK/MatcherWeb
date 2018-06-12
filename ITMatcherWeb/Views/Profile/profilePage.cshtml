@@ -14,6 +14,8 @@
 <body>
 
     @{string currentUserId = ViewBag.CurrentUserId; }
+    @{string CurrentUserName = ViewBag.CurrentUserName; }
+
 
     <div id="wrapper">
         <!-- Sidebar -->
@@ -30,9 +32,12 @@
                 <li>
                     @Html.ActionLink("Profile details", "Edit", "Users", new { @id = currentUserId }, null)
                 </li>
+                <li>
+                    @Html.ActionLink("Delete profile", "Delete", "Users", new { @id = currentUserId }, null)
+                </li>
                 <li><a href="#">Userroles</a></li>
-                <li>@Html.ActionLink("Consultant list", "Index", "Users")</li>                
-                
+                <li>@Html.ActionLink("Consultant list", "Index", "Users")</li>
+
 
 
             </ul>
@@ -50,17 +55,18 @@
 
                             <h3>Ealier jobs</h3>
                             <hr />
-                             @if (Model.Any())
-                             {
-                                 foreach (var i in Model)
-                                 {
-                                     if (i.JobExperiences.Any()==false)
-                                     {
-                                         <p>No job experiences currently added - add jobexp. through "Job experiences" in menu </p>
-                                     }    
-                                     else{
-                                         foreach (var j in i.JobExperiences)
-                                         {
+                            @if (Model.Any())
+                            {
+                                foreach (var i in Model)
+                                {
+                                    if (i.JobExperiences.Any() == false)
+                                    {
+                                        <p>No job experiences currently added - add jobexp. through "Job experiences" in menu </p>
+                                    }
+                                    else
+                                    {
+                                        foreach (var j in i.JobExperiences)
+                                        {
                                             <dl>
                                                 <dt>
                                                     @j.Employer: period: @j.DateOfEmployment - @j.DateOfExit
@@ -69,50 +75,50 @@
                                                     Titles
 
                                                 </dt>
-                                                    @if (j.Titles.Any() == false)
+                                                @if (j.Titles.Any() == false)
+                                                {
+                                                    <dd>No titles added - Add title through "Job Experiences" in menu, then add title</dd>
+                                                }
+                                                else
+                                                {
+                                                    foreach (var t in j.Titles)
                                                     {
-                                                        <dd>No titles added - Add title through "Job Experiences" in menu, then add title</dd>
+                                                        <dd>@t.TitleName</dd>
                                                     }
-                                                    else
-                                                    {
-                                                        foreach (var t in j.Titles)
-                                                        {
-                                                            <dd>@t.TitleName</dd>
-                                                        }
-                                                    }
+                                                }
                                                 <dt>
                                                     Subjects
                                                 </dt>
-                                                    @if (j.Subjects.Any() == false)
+                                                @if (j.Subjects.Any() == false)
+                                                {
+                                                    <dd>No subjects added - Add subject through "Job Experiences" in menu, then add subject</dd>
+                                                }
+                                                else
+                                                {
+                                                    foreach (var s in j.Subjects)
                                                     {
-                                                        <dd>No subjects added - Add subject through "Job Experiences" in menu, then add subject</dd>
+                                                        <dd>@s.Name</dd>
                                                     }
-                                                    else
-                                                    {
-                                                        foreach (var s in j.Subjects)
-                                                        {
-                                                            <dd>@s.Name</dd>
-                                                        }
-                                                    }
+                                                }
                                                 <dt>
                                                     Environments
                                                 </dt>
-                                                    @if (j.Environments.Any() == false)
+                                                @if (j.Environments.Any() == false)
+                                                {
+                                                    <dd>No environments added - Add environment through "Job Experiences" in menu, then add environment</dd>
+                                                }
+                                                else
+                                                {
+                                                    foreach (var e in j.Environments)
                                                     {
-                                                        <dd>No environments added - Add environment through "Job Experiences" in menu, then add environment</dd>
+                                                        <dd>@e.EnvironmentName</dd>
                                                     }
-                                                    else
-                                                    {
-                                                        foreach (var e in j.Environments)
-                                                        {
-                                                            <dd>@e.EnvironmentName</dd>
-                                                        }
-                                                    }
+                                                }
                                             </dl><hr />
-                                         }
-                                     }
-                                 }
-                             }
+                                        }
+                                    }
+                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -123,9 +129,9 @@
     <!-- Menu toggle script -->
     <script>
         $("#menu-toggle").click(function (e) {
-                                e.preventDefault();
+            e.preventDefault();
             $("#wrapper").toggleClass("menuDisplayed");
-                            });
+        });
     </script>
 
 </body>

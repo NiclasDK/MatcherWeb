@@ -76,6 +76,7 @@ namespace ITMatcherWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin3, Admin2")]
         public ActionResult AddJobFromAdmin([Bind(Include = "JobExperienceId,Employer,DateOfEmployment,DateOfExit")] JobExperience jobExperience, string id) {
 
             jobExperience.ApplicationUser = db.Users.Where(x => x.Id == id).First();

@@ -398,6 +398,14 @@ namespace ITMatcherWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public ActionResult LogOffGet()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
+
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]

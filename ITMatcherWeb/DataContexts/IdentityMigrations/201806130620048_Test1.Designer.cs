@@ -7,13 +7,13 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Removedaddress : IMigrationMetadata
+    public sealed partial class Test1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Removedaddress));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Test1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806081152297_Removed address"; }
+            get { return "201806130620048_Test1"; }
         }
         
         string IMigrationMetadata.Source

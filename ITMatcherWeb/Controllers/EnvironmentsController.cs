@@ -34,6 +34,7 @@ namespace ITMatcherWeb.Controllers
             return View(EnvironmentList);
         }
 
+
         // GET: Environments/Details/5
         public ActionResult Details(int? id)
         {
@@ -52,7 +53,14 @@ namespace ITMatcherWeb.Controllers
         // GET: Environments/Create
         public ActionResult Create()
         {
+            ViewBag.Environments = db.Environments;
+
             return View();
+        }
+
+        public ActionResult AdminCreate()
+        {
+            return View("AdminCreate");
         }
 
         // POST: Environments/Create
@@ -73,6 +81,22 @@ namespace ITMatcherWeb.Controllers
 
             return View(environment);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminEnvCreation([Bind(Include = "EnvironmentId,EnvironmentName, IsAccepted")] Models.Environment environment)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Environments.Add(environment);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(environment);
+        }
+
 
         // GET: Environments/Edit/5
         public ActionResult Edit(int? id)

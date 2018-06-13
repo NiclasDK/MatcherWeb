@@ -204,101 +204,9 @@
     <Compile Include="Controllers\TitlesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataContexts\ApplicationUserDb.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.Designer.cs">
-      <DependentUpon>201805171135359_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805171944026_Subject enum skilllevel.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805171944026_Subject enum skilllevel.Designer.cs">
-      <DependentUpon>201805171944026_Subject enum skilllevel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.Designer.cs">
-      <DependentUpon>201805172034017_Explicit fk in subject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.Designer.cs">
-      <DependentUpon>201805211449548_Added title and environment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.Designer.cs">
-      <DependentUpon>201805211458312_Added environment to jobexp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.Designer.cs">
-      <DependentUpon>201805212119187_Added required notation to subject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805221226115_Education added.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805221226115_Education added.Designer.cs">
-      <DependentUpon>201805221226115_Education added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805221231357_virtual props for User.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805221231357_virtual props for User.Designer.cs">
-      <DependentUpon>201805221231357_virtual props for User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805242021227_added clause and datepicker annotation.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805242021227_added clause and datepicker annotation.Designer.cs">
-      <DependentUpon>201805242021227_added clause and datepicker annotation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.Designer.cs">
-      <DependentUpon>201805242023025_add migrations2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805251049057_User language mappping.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805251049057_User language mappping.Designer.cs">
-      <DependentUpon>201805251049057_User language mappping.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.Designer.cs">
-      <DependentUpon>201805251112019_added isAccepted to objects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201805311617096_User clauses.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201805311617096_User clauses.Designer.cs">
-      <DependentUpon>201805311617096_User clauses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806021220440_Removed enum-type and added JobExperience relation to Environment.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806021220440_Removed enum-type and added JobExperience relation to Environment.Designer.cs">
-      <DependentUpon>201806021220440_Removed enum-type and added JobExperience relation to Environment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806041554148_Added business.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806041554148_Added business.Designer.cs">
-      <DependentUpon>201806041554148_Added business.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.Designer.cs">
-      <DependentUpon>201806041606093_Removed business to jobexperience relation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806081152297_Removed address.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806081152297_Removed address.Designer.cs">
-      <DependentUpon>201806081152297_Removed address.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806081219293_zipcode + city in User-class %28NF3%29 .cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806081219293_zipcode + city in User-class %28NF3%29 .Designer.cs">
-      <DependentUpon>201806081219293_zipcode + city in User-class %28NF3%29 .cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806081327427_Subj jobexp non-virtual.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806081327427_Subj jobexp non-virtual.Designer.cs">
-      <DependentUpon>201806081327427_Subj jobexp non-virtual.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.Designer.cs">
-      <DependentUpon>201806081328529_removed req jobexp from subj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806082203116_Namings-annotations changed.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806082203116_Namings-annotations changed.Designer.cs">
-      <DependentUpon>201806082203116_Namings-annotations changed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806091636364_Test.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806091636364_Test.Designer.cs">
-      <DependentUpon>201806091636364_Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806091829265_Added jobExp-id to Business.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806091829265_Added jobExp-id to Business.Designer.cs">
-      <DependentUpon>201806091829265_Added jobExp-id to Business.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\201806092004193_Changes to Titles.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806092004193_Changes to Titles.Designer.cs">
-      <DependentUpon>201806092004193_Changes to Titles.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201806131336386_Test.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806131336386_Test.Designer.cs">
+      <DependentUpon>201806131336386_Test.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -427,6 +335,8 @@
     <Content Include="Views\Bulletins\Details.cshtml" />
     <Content Include="Views\Bulletins\Edit.cshtml" />
     <Content Include="Views\Bulletins\Index.cshtml" />
+    <Content Include="Views\Environments\AdminCreate.cshtml" />
+    <Content Include="Views\Subjects\AdminCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -448,77 +358,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805171135359_InitialCreate.resx">
-      <DependentUpon>201805171135359_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805171944026_Subject enum skilllevel.resx">
-      <DependentUpon>201805171944026_Subject enum skilllevel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805172034017_Explicit fk in subject.resx">
-      <DependentUpon>201805172034017_Explicit fk in subject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805211449548_Added title and environment.resx">
-      <DependentUpon>201805211449548_Added title and environment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805211458312_Added environment to jobexp.resx">
-      <DependentUpon>201805211458312_Added environment to jobexp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805212119187_Added required notation to subject.resx">
-      <DependentUpon>201805212119187_Added required notation to subject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805221226115_Education added.resx">
-      <DependentUpon>201805221226115_Education added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805221231357_virtual props for User.resx">
-      <DependentUpon>201805221231357_virtual props for User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805242021227_added clause and datepicker annotation.resx">
-      <DependentUpon>201805242021227_added clause and datepicker annotation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805242023025_add migrations2.resx">
-      <DependentUpon>201805242023025_add migrations2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805251049057_User language mappping.resx">
-      <DependentUpon>201805251049057_User language mappping.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805251112019_added isAccepted to objects.resx">
-      <DependentUpon>201805251112019_added isAccepted to objects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201805311617096_User clauses.resx">
-      <DependentUpon>201805311617096_User clauses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806021220440_Removed enum-type and added JobExperience relation to Environment.resx">
-      <DependentUpon>201806021220440_Removed enum-type and added JobExperience relation to Environment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806041554148_Added business.resx">
-      <DependentUpon>201806041554148_Added business.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806041606093_Removed business to jobexperience relation.resx">
-      <DependentUpon>201806041606093_Removed business to jobexperience relation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081152297_Removed address.resx">
-      <DependentUpon>201806081152297_Removed address.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081219293_zipcode + city in User-class %28NF3%29 .resx">
-      <DependentUpon>201806081219293_zipcode + city in User-class %28NF3%29 .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081327427_Subj jobexp non-virtual.resx">
-      <DependentUpon>201806081327427_Subj jobexp non-virtual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806081328529_removed req jobexp from subj.resx">
-      <DependentUpon>201806081328529_removed req jobexp from subj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806082203116_Namings-annotations changed.resx">
-      <DependentUpon>201806082203116_Namings-annotations changed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806091636364_Test.resx">
-      <DependentUpon>201806091636364_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806091829265_Added jobExp-id to Business.resx">
-      <DependentUpon>201806091829265_Added jobExp-id to Business.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806092004193_Changes to Titles.resx">
-      <DependentUpon>201806092004193_Changes to Titles.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806131336386_Test.resx">
+      <DependentUpon>201806131336386_Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

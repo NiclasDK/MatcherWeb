@@ -7,13 +7,13 @@ namespace ITMatcherWeb.DataContexts.IdentityMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class zipcodecityinUserclassNF3 : IMigrationMetadata
+    public sealed partial class Test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(zipcodecityinUserclassNF3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Test));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806081219293_zipcode + city in User-class (NF3) "; }
+            get { return "201806131336386_Test"; }
         }
         
         string IMigrationMetadata.Source

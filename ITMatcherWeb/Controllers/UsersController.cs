@@ -132,7 +132,7 @@ namespace ITMatcherWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                string id = User.Identity.GetUserId();
+                string id = user.Id;
                 var existingUser = db.Users.Single(u => u.Id == id);
                 existingUser.Available = user.Available;
                 existingUser.ActivelySeeking = user.ActivelySeeking;
@@ -175,7 +175,7 @@ namespace ITMatcherWeb.Controllers
                 return HttpNotFound();
             }
 
-            
+
             return View(user);
         }
 
@@ -187,7 +187,8 @@ namespace ITMatcherWeb.Controllers
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("LogOffGet", "Account");
+            //return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

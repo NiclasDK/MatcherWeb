@@ -14,9 +14,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.JobExperience.Employer)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EnvironmentName)
         </th>
         <th>
@@ -28,9 +25,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobExperience.Employer)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EnvironmentName)
             </td>

@@ -64,6 +64,9 @@ namespace ITMatcherWeb.DataContexts
             .HasMany(u => u.Certificates)
             .WithRequired(c => c.ApplicationUser)
             .WillCascadeOnDelete(true);
+
+
+
         }
 
         public ApplicationDbContext() : base("DefaultConnection")

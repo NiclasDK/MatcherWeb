@@ -11,8 +11,8 @@ namespace ITMatcherWeb.Models
         public int EnvironmentId { get; set; }
         [Display(Name = "Name of environment")]
         public string EnvironmentName { get; set; }
+        [Display(Name = "Accepted")]
         public Boolean IsAccepted { get; set; }
-        public virtual JobExperience JobExperience { get; set;}
-        public int JobExperienceId { get; set; }
+        public int? JobExperienceId { get; set; }
     }
 }

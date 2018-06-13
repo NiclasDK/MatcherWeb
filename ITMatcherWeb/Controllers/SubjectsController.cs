@@ -17,6 +17,7 @@ namespace ITMatcherWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Subjects
+        [Authorize(Roles = "Admin3, Admin2, Admin1")]
         public ActionResult Index()
         {
             return View(db.Subjects.ToList());
@@ -42,7 +43,14 @@ namespace ITMatcherWeb.Controllers
         // GET: Subjects/Create
         public ActionResult Create()
         {
+            ViewBag.SubjectDropDown = db.Subjects;
+
             return View();
+        }
+
+        public ActionResult AdminCreate()
+        {
+            return View("AdminCreate");
         }
 
         // POST: Subjects/Create
@@ -59,6 +67,21 @@ namespace ITMatcherWeb.Controllers
                 db.Subjects.Add(subject);
                 db.SaveChanges();
                 return RedirectToAction("SubjectList/"+id);
+            }
+
+            return View(subject);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminCreate([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Subjects.Add(subject);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             return View(subject);

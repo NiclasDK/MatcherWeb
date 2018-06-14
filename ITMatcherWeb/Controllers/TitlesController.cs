@@ -29,7 +29,10 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var TitleList = db.Titles.Where(t => t.JobExperienceId == id).ToList();
+
+            var TitleList = db.Titles.Where(t => t.TitleId == id).SelectMany(c => c.JobExperiences).ToList();
+            //var TitleList2 = db.Titles.Where(t => t.
+            //var TitleList = db.Titles.Where(t => t.JobExperienceId == id).ToList();
             return View(TitleList);
         }
 
@@ -61,7 +64,9 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TitleId,TitleName,IsAccepted")] Title title, int id)
         {
-            title.JobExperienceId = id;
+            //title.JobExperienceId = id;
+            title.JobExperiences.Where(j => j.JobExperienceId == id).First();
+
 
             if (ModelState.IsValid)
             {

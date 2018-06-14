@@ -26,5 +26,12 @@ namespace ITMatcherWeb.Models
         public virtual ICollection<Title> Titles { get; set; }
         public virtual User ApplicationUser { get; set; }
         public bool IsAccepted { get; set; }
+
+        public JobExperience()
+        {
+            this.Environments = new HashSet<Models.Environment>();
+            this.Subjects = new HashSet<Subject>();
+            this.Titles = new HashSet<Title>();
+        }
     }
 }

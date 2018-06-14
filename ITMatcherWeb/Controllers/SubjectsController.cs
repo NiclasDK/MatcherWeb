@@ -60,7 +60,8 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject, int id)
         {
-            subject.JobExperienceId = id;
+
+            subject.JobExperiences.Where(j => j.JobExperienceId == id).First();
 
             if (ModelState.IsValid)
             {
@@ -152,7 +153,9 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var subjectList = db.Subjects.Where(s => s.JobExperienceId == id).ToList();
+            var subjectList = db.Subjects.Where(s => s.SubjectId== id).SelectMany(c => c.JobExperiences).ToList();
+
+            //var subjectList = db.Subjects.Where(s => s.JobExperienceId == id).ToList();
             return View(subjectList);
         }
 

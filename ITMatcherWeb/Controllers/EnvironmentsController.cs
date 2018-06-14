@@ -30,7 +30,9 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var EnvironmentList = db.Environments.Where(s => s.JobExperienceId == id).ToList();
+            var EnvironmentList = db.Environments.Where(e => e.EnvironmentId == id).SelectMany(c => c.JobExperiences).ToList();
+
+            //var EnvironmentList = db.Environments.Where(s => s. == id).ToList();
             return View(EnvironmentList);
         }
 
@@ -70,7 +72,9 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment, int id)
         {
-            environment.JobExperienceId = id;
+            //environment.JobExperienceId = id;
+            environment.JobExperiences.Where(j => j.JobExperienceId == id).First();
+
 
             if (ModelState.IsValid)
             {

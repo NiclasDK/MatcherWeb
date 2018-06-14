@@ -26,8 +26,8 @@ namespace ITMatcherWeb.DataContexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<JobExperience>()
-            .HasMany(j => j.Subjects);
+            /*modelBuilder.Entity<JobExperience>()
+            .HasMany(j => j.Subjects);*/
 
             modelBuilder.Entity<User>()
             .HasMany(u => u.Businesses);
@@ -37,6 +37,36 @@ namespace ITMatcherWeb.DataContexts
             .WithRequired(p => p.Bulletin)
             .WillCascadeOnDelete(true);
 
+            modelBuilder.Entity<JobExperience>()
+            .HasMany<Models.Environment>(s => s.Environments)
+            .WithMany(e => e.JobExperiences)
+            .Map(cs =>
+            {
+                cs.MapLeftKey("JobExperienceId");
+                cs.MapRightKey("EnvironmentId");
+                cs.ToTable("JobexpEnv");
+            });
+
+            modelBuilder.Entity<JobExperience>()
+            .HasMany<Models.Subject>(s => s.Subjects)
+            .WithMany(e => e.JobExperiences)
+            .Map(cs =>
+            {
+                cs.MapLeftKey("JobExperienceId");
+                cs.MapRightKey("SubjectId");
+                cs.ToTable("JobexpSubj");
+            });
+
+            modelBuilder.Entity<JobExperience>()
+            .HasMany<Models.Title>(s => s.Titles)
+            .WithMany(e => e.JobExperiences)
+            .Map(cs =>
+            {
+                cs.MapLeftKey("JobExperienceId");
+                cs.MapRightKey("TitleId");
+                cs.ToTable("JobexpTit");
+            });
+
             //Creates relation between user and jobexperiences. 
             //User is required for jobExperience to exist.
             //If user is deleted, all JobExperiences will be deleted.
@@ -44,6 +74,7 @@ namespace ITMatcherWeb.DataContexts
             .HasMany(u => u.JobExperiences)
             .WithRequired(j => j.ApplicationUser)
             .WillCascadeOnDelete(true);
+
 
             modelBuilder.Entity<User>()
             .HasMany(u => u.Educations)

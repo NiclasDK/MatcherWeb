@@ -18,7 +18,13 @@ namespace ITMatcherWeb.Models
         [DataType(DataType.Date)]
         public DateTime? EndTime { get; set; }
         public PercievedLevelOfSkill PercievedLevelOfSkill { get; set; }
-        public int? JobExperienceId { get; set; }
+        //public int? JobExperienceId { get; set; }
+        public virtual ICollection<JobExperience> JobExperiences { get; set; }
+
+        public Subject()
+        {
+            this.JobExperiences = new HashSet<JobExperience>();
+        }
     }
 
     public enum PercievedLevelOfSkill

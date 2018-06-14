@@ -204,9 +204,13 @@
     <Compile Include="Controllers\TitlesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataContexts\ApplicationUserDb.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806131336386_Test.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201806131336386_Test.Designer.cs">
-      <DependentUpon>201806131336386_Test.cs</DependentUpon>
+    <Compile Include="DataContexts\IdentityMigrations\201806141742150_Many to many relations.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806141742150_Many to many relations.Designer.cs">
+      <DependentUpon>201806141742150_Many to many relations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806141802598_correcting relation.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806141802598_correcting relation.Designer.cs">
+      <DependentUpon>201806141802598_correcting relation.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
@@ -358,8 +362,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806131336386_Test.resx">
-      <DependentUpon>201806131336386_Test.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806141742150_Many to many relations.resx">
+      <DependentUpon>201806141742150_Many to many relations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806141802598_correcting relation.resx">
+      <DependentUpon>201806141802598_correcting relation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

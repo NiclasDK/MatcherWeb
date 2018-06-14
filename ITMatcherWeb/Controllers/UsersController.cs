@@ -184,8 +184,19 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            User User = db.Users.Find(id);
+            if (User.JobExperiences.Any()) { 
+            foreach (JobExperience j in User.JobExperiences.ToList()) {
+                    if (j.Environments.Any()) { 
+                        foreach (Models.Environment e in j.Environments.ToList()) {
+                            db.Environments.Remove(e);
+                        }
+                    }
+                    db.JobExperiences.Remove(j);
+                }
+            }
+            db.Users.Remove(User);
+
             db.SaveChanges();
             return RedirectToAction("LogOffGet", "Account");
             //return RedirectToAction("Index");

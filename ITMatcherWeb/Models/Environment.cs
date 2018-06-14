@@ -13,6 +13,12 @@ namespace ITMatcherWeb.Models
         public string EnvironmentName { get; set; }
         [Display(Name = "Accepted")]
         public Boolean IsAccepted { get; set; }
-        public int? JobExperienceId { get; set; }
+        public virtual ICollection<JobExperience> JobExperiences {get; set;}
+        //public int? JobExperienceId { get; set; }
+
+        public Environment()
+        {
+            this.JobExperiences = new HashSet<JobExperience>();
+        }
     }
 }

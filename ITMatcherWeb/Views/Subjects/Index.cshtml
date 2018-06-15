@@ -14,6 +14,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </th>
         <th></th>
     </tr>
 
@@ -22,11 +25,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAccepted)
+        </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubjectId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubjectId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubjectId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SubjectId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SubjectId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SubjectId })
         </td>
     </tr>
 }

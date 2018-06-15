@@ -18,7 +18,9 @@ namespace ITMatcherWeb.Models
         [DataType(DataType.Date)]
         public DateTime? EndTime { get; set; }
         public PercievedLevelOfSkill PercievedLevelOfSkill { get; set; }
+        public bool IsAccepted{ get; set; }
         //public int? JobExperienceId { get; set; }
+        //Navigational prop
         public virtual ICollection<JobExperience> JobExperiences { get; set; }
 
         public Subject()

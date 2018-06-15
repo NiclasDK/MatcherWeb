@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ITMatcherWeb.DataContexts;
 using ITMatcherWeb.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ITMatcherWeb.Controllers
 {
@@ -20,7 +21,10 @@ namespace ITMatcherWeb.Controllers
         [Authorize(Roles = "Admin3, Admin2, Admin1")]
         public ActionResult Index()
         {
-            return View(db.Subjects.ToList());
+
+            //db.Subjects.ToList()
+            //Returns a view with distinct values. All subjects are grouped by name then first in group is added to list
+            return View(db.Subjects.GroupBy(s => s.Name).Select(s=>s.FirstOrDefault()).ToList());
         }
 
 
@@ -43,7 +47,7 @@ namespace ITMatcherWeb.Controllers
         // GET: Subjects/Create
         public ActionResult Create()
         {
-            ViewBag.SubjectDropDown = db.Subjects;
+            ViewBag.SubjectDropDown = db.Subjects.Where(s=> s.IsAccepted==true);
 
             return View();
         }
@@ -61,7 +65,13 @@ namespace ITMatcherWeb.Controllers
         public ActionResult Create([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject, int id)
         {
 
-            subject.JobExperiences.Where(j => j.JobExperienceId == id).First();
+            //var subjectList = db.Subjects.Where(s => s.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
+            //var jobExpList = db.JobExperiences.Include(j => j.Subjects).Where(j => j.JobExperienceId == id).Single();
+            JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+
+            jobExp.Subjects.Add(subject);
+            //subject.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+
 
             if (ModelState.IsValid)
             {
@@ -75,8 +85,9 @@ namespace ITMatcherWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AdminCreate([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject)
+        public ActionResult AdminCreate([Bind(Include = "SubjectId,Name")] Subject subject)
         {
+            subject.IsAccepted = true;
 
             if (ModelState.IsValid)
             {
@@ -89,9 +100,9 @@ namespace ITMatcherWeb.Controllers
         }
 
         // GET: Subjects/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id.Equals(""))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -108,7 +119,7 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject)
+        public ActionResult Edit([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill, IsAccepted")] Subject subject)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +153,16 @@ namespace ITMatcherWeb.Controllers
             Subject subject = db.Subjects.Find(id);
             db.Subjects.Remove(subject);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("ProfileJobIndex", "JobExperiences");
+            }
+
         }
 
         public ActionResult SubjectList(int id)
@@ -153,9 +173,15 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var subjectList = db.Subjects.Where(s => s.SubjectId== id).SelectMany(c => c.JobExperiences).ToList();
 
-            //var subjectList = db.Subjects.Where(s => s.JobExperienceId == id).ToList();
+            //context.Parent.Where(e => e.ParentId == RequiredParentId).SelectMany(e => e.Child)
+            //var jobExpList = db.JobExperiences.Include(j => j.Subjects).Where(j => j.JobExperienceId == id);
+            //var subjectList = jobExpList.
+
+            var subjectList = db.Subjects.Where(s => s.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
+
+            //var subjectList = db.Subjects.Where(s => s.JobExperiences== id).SelectMany(s => s.Subjects).ToList();
+            //var subjectList = db.Subjects.Where(t => t.SubjectId == id);
             return View(subjectList);
         }
 

@@ -18,6 +18,15 @@ namespace ITMatcherWeb.Controllers
         [Authorize]
         public ActionResult Profile()
         {
+            if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
+            {
+                ViewBag.IsOfAdminType = true;
+            }
+            else
+            {
+                ViewBag.IsOfAdminType = false;
+            }
+
             var UserId = User.Identity.GetUserId();
             var user = db.Users.Where(u => u.Id == UserId).Include(j => j.JobExperiences).ToList();
             ViewBag.CurrentUserId = UserId;

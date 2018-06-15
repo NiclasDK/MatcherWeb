@@ -26,6 +26,7 @@ namespace ITMatcherWeb.Controllers
                 ViewBag.numberOfProjectMangers = db.Users
                 .Where(u => u.JobExperiences.Any(j => j.Subjects.Any(s => s.Name == "Project manager")))
                 .Count();
+
             }
             else {
                 ViewBag.numberOfProjectMangers = 0;

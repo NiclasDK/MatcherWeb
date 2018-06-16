@@ -32,9 +32,6 @@ namespace ITMatcherWeb.Controllers
             }
             var TitleList = db.Titles.Where(t => t.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
 
-            //var TitleList = db.Titles.Where(t => t.TitleId == id).SelectMany(c => c.JobExperiences).ToList();
-            //var TitleList2 = db.Titles.Where(t => t.
-            //var TitleList = db.Titles.Where(t => t.JobExperienceId == id).ToList();
             return View(TitleList);
         }
 

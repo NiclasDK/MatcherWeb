@@ -35,7 +35,13 @@ namespace ITMatcherWeb.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
 
-                //var user = db.Users.
+                //users = db.Users.SelectMany(u => u.JobExperiences).SelectMany(j => j.Subjects).Where(s=> s.Name==searchString));
+                /*users = db.Users.Where(u => u.JobExperiences
+                    .SelectMany(j => j.Subjects)
+                    .Any(d => d.Name == "Siemens"));*/
+
+                users = db.Users.Where(u => u.JobExperiences.Any(h =>  h.Subjects.Any(d => d.Name == searchString)));
+
 
 
                 //students = students.Where(s => s.LastName.Contains(searchString)|| s.FirstMidName.Contains(searchString));

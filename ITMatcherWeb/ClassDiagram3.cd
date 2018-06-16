@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="ITMatcherWeb.Models.Business">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Business.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Certificate">
+    <Position X="20" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAQAAAAAAQAAAAABAAAAABAAAAAAAA=</HashCode>
+      <FileName>Models\Certificate.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Clause">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <AssociationLine Name="ApplicationUser" Type="ITMatcherWeb.Models.User" FixedFromPoint="true">
+      <Path>
+        <Point X="20" Y="7.062" />
+        <Point X="18.75" Y="7.062" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.008" Y="0.075" Height="0.182" Width="1.206" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQACgAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Clause.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Education">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAIY=</HashCode>
+      <FileName>Models\Education.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Environment">
+    <Position X="15.25" Y="5" Width="1.5" />
+    <AssociationLine Name="JobExperiences" Type="ITMatcherWeb.Models.JobExperience" FixedToPoint="true">
+      <Path>
+        <Point X="16.188" Y="5" />
+        <Point X="16.188" Y="4.45" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAIAAEAAAABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Models\Environment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="JobExperiences" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.User">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEACCAAREACIAAAAAAJAAAAQAAAAAgAAAUAAAFg=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.JobExperience">
+    <Position X="15" Y="2" Width="1.5" />
+    <AssociationLine Name="Subjects" Type="ITMatcherWeb.Models.Subject" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15" Y="4" />
+        <Point X="14" Y="4" />
+        <Point X="14" Y="4.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.109" Y="0.041" Height="0.182" Width="1.056" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ApplicationUser" Type="ITMatcherWeb.Models.User">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.037" Y="0.045" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAEECAAAAAEAQAAAAAAAAAAAAAAQAABABAAAAAAA=</HashCode>
+      <FileName>Models\JobExperience.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Subjects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Language">
+    <Position X="14.5" Y="7" Width="1.5" />
+    <AssociationLine Name="ApplicationUser" Type="ITMatcherWeb.Models.User" FixedFromPoint="true">
+      <Path>
+        <Point X="16" Y="7.312" />
+        <Point X="17.25" Y="7.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.037" Y="0.104" Height="0.182" Width="1.208" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAQAQgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Language.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicationUser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Subject">
+    <Position X="13.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAEAABAAABAAAAAAQAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ITMatcherWeb.Models.Title">
+    <Position X="13.25" Y="1" Width="1.5" />
+    <AssociationLine Name="JobExperiences" Type="ITMatcherWeb.Models.JobExperience" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="1.625" />
+        <Point X="15.75" Y="1.625" />
+        <Point X="15.75" Y="2" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.527" Y="0.453" Height="0.182" Width="1.368" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAABAAAEAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Title.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="JobExperiences" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="ITMatcherWeb.Models.EducationLevel" Collapsed="true">
+    <Position X="20" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgBAAEAAAAAAAAAAAABAAAAAAAAAAAIAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\Education.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ITMatcherWeb.Models.Gender" Collapsed="true">
+    <Position X="17.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ITMatcherWeb.Models.LanguageMastery" Collapsed="true">
+    <Position X="13" Y="7" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAE=</HashCode>
+      <FileName>Models\Language.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ITMatcherWeb.Models.PercievedLevelOfSkill" Collapsed="true">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAE=</HashCode>
+      <FileName>Models\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

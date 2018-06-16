@@ -11,6 +11,7 @@ using ITMatcherWeb.Models;
 
 namespace ITMatcherWeb.Controllers
 {
+    [Authorize]
     public class TitlesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -29,8 +30,9 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var TitleList = db.Titles.Where(t => t.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
 
-            var TitleList = db.Titles.Where(t => t.TitleId == id).SelectMany(c => c.JobExperiences).ToList();
+            //var TitleList = db.Titles.Where(t => t.TitleId == id).SelectMany(c => c.JobExperiences).ToList();
             //var TitleList2 = db.Titles.Where(t => t.
             //var TitleList = db.Titles.Where(t => t.JobExperienceId == id).ToList();
             return View(TitleList);
@@ -54,7 +56,31 @@ namespace ITMatcherWeb.Controllers
         // GET: Titles/Create
         public ActionResult Create()
         {
+            ViewBag.TitleDropDown = db.Titles.Where(t => t.IsAccepted == true);
+
             return View();
+        }
+
+        [Authorize(Roles = "Admin1, Admin2, Admin3")]
+        public ActionResult AdminCreate()
+        {
+            return View("AdminCreate");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminCreate([Bind(Include = "TitleId,TitleName")] Title title)
+        {
+            title.IsAccepted = true;
+
+            if (ModelState.IsValid)
+            {
+                db.Titles.Add(title);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(title);
         }
 
         // POST: Titles/Create
@@ -65,7 +91,11 @@ namespace ITMatcherWeb.Controllers
         public ActionResult Create([Bind(Include = "TitleId,TitleName,IsAccepted")] Title title, int id)
         {
             //title.JobExperienceId = id;
-            title.JobExperiences.Where(j => j.JobExperienceId == id).First();
+            JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+
+            jobExp.Titles.Add(title);
+
+            //title.JobExperiences.Where(j => j.JobExperienceId == id).First();
 
 
             if (ModelState.IsValid)
@@ -130,6 +160,7 @@ namespace ITMatcherWeb.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Title title = db.Titles.Find(id);
+
             db.Titles.Remove(title);
             db.SaveChanges();
             return RedirectToAction("Index");

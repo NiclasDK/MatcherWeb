@@ -17,12 +17,11 @@ namespace ITMatcherWeb.Controllers
     public class UsersController : Controller
     {
         
-
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Users
-        [Authorize(Roles = "Admin3")]
-        public ActionResult Index(string sortOrder)
+        [Authorize(Roles = "Admin1, Admin2, Admin3")]
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
@@ -32,6 +31,15 @@ namespace ITMatcherWeb.Controllers
 
             var users = from u in db.Users
                            select u;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                //var user = db.Users.
+
+
+                //students = students.Where(s => s.LastName.Contains(searchString)|| s.FirstMidName.Contains(searchString));
+            }
 
             switch (sortOrder)
             {
@@ -89,23 +97,10 @@ namespace ITMatcherWeb.Controllers
         [Authorize(Roles = "Admin3, Admin2")]
         public void ExtractToCsv(string id)
         {
-            StringWriter sw = new StringWriter();
+            User user = new User();
+            user.ExtracttoCsv(id);
 
-            sw.WriteLine("\"First name\",\"Last name\"");
 
-            Response.ClearContent();
-            Response.AddHeader("content-disposition","attachment;filename=exportedConsultents.csv");
-            Response.ContentType = "text/csv";
-
-            var user = db.Users.Find(id);
-
-            sw.WriteLine(string.Format("\"{0}\",\"{1}\"",
-                user.FirstName,
-                user.LastName
-                ));
-
-            Response.Write(sw.ToString());
-            Response.End();
         }
 
         // GET: Users/Edit/5
@@ -128,12 +123,11 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Available,ActivelySeeking,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,PhoneNumber, Zipcode, City")] User user)
+        public ActionResult Edit([Bind(Include = "Available,ActivelySeeking,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,PhoneNumber, Zipcode, City")] User user, string id)
         {
             if (ModelState.IsValid)
             {
-                string id = user.Id;
-                var existingUser = db.Users.Single(u => u.Id == id);
+                var existingUser = db.Users.SingleOrDefault(u => u.Id == id);
                 existingUser.Available = user.Available;
                 existingUser.ActivelySeeking = user.ActivelySeeking;
                 existingUser.ExpectedHourlySalary = user.ExpectedHourlySalary;

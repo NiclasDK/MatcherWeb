@@ -28,7 +28,16 @@ namespace ITMatcherWeb.Controllers
         // GET: JobExperiences
         public ActionResult Index()
         {
-            return View(db.JobExperiences.ToList());
+            if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
+            {
+                return View(db.JobExperiences.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Profile", "Profile");
+            }
+
+            
         }
 
         // GET: JobExperiences/Details/5

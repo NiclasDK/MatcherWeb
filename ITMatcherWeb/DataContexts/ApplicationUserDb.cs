@@ -26,9 +26,6 @@ namespace ITMatcherWeb.DataContexts
         {
             base.OnModelCreating(modelBuilder);
 
-            /*modelBuilder.Entity<JobExperience>()
-            .HasMany(j => j.Subjects);*/
-
             modelBuilder.Entity<User>()
             .HasMany(u => u.Businesses);
 
@@ -95,8 +92,6 @@ namespace ITMatcherWeb.DataContexts
             .HasMany(u => u.Certificates)
             .WithRequired(c => c.ApplicationUser)
             .WillCascadeOnDelete(true);
-
-
 
         }
 

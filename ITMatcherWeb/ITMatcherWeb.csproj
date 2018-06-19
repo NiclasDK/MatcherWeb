@@ -228,6 +228,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201806191559572_Many to many user lang.Designer.cs">
       <DependentUpon>201806191559572_Many to many user lang.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806191623298_Removed unused variables in user.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806191623298_Removed unused variables in user.Designer.cs">
+      <DependentUpon>201806191623298_Removed unused variables in user.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -395,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201806191559572_Many to many user lang.resx">
       <DependentUpon>201806191559572_Many to many user lang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806191623298_Removed unused variables in user.resx">
+      <DependentUpon>201806191623298_Removed unused variables in user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -123,7 +123,7 @@ namespace ITMatcherWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Available,ActivelySeeking,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,PhoneNumber, Zipcode, City")] User user, string id)
+        public ActionResult Edit([Bind(Include = "Available,ActivelySeeking,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,PhoneNumber")] User user, string id)
         {
 
             //Explicitly defined variables to be set. ASPNETUSER contain more than the fields below,
@@ -140,8 +140,7 @@ namespace ITMatcherWeb.Controllers
                 existingUser.LastName = user.LastName;
                 existingUser.Email = user.Email;
                 existingUser.PhoneNumber = user.PhoneNumber;
-                existingUser.Zipcode = user.Zipcode;
-                existingUser.City = user.City;
+
 
                 // etc.
                 db.SaveChanges();

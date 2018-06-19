@@ -17,11 +17,11 @@ namespace ITMatcherWeb.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser
     {
-        public Boolean Available { get; set; }
+        public Boolean Available { get; set; } = true;
         [Display(Name = "Actively seeking")]
-        public Boolean ActivelySeeking { get; set; }
+        public Boolean ActivelySeeking { get; set; } = true;
         [Display(Name = "Accepted data use")]
-        public Boolean AcceptedUseOfData { get; set; }
+        public Boolean AcceptedUseOfData { get; set; } = true;
         [Display(Name = "Expected hourly salary")]
         public int ExpectedHourlySalary { get; set;}
         public Gender Gender { get; set;}
@@ -32,8 +32,6 @@ namespace ITMatcherWeb.Models
         public String FirstName { get; set; }
         [Display(Name = "Last name")]
         public string LastName { get; set; }
-        public string Zipcode { get; set; }
-        public string City { get; set; }
         public virtual ICollection<JobExperience> JobExperiences { get; set; }
         public virtual ICollection<Language> Languages { get; set; }
         public virtual ICollection<Certificate> Certificates { get; set; }

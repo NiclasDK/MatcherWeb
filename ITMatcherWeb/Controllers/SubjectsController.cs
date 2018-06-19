@@ -146,26 +146,34 @@ namespace ITMatcherWeb.Controllers
             return View(subject);
         }
 
-        // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        //Deleting a subject from subjectlist is different from admin to normal users.
+        //Admins delete all subjects created, while normal users delete own.
         public ActionResult DeleteConfirmed(int id)
         {
             Subject subject = db.Subjects.Find(id);
-            db.Subjects.Remove(subject);
-            db.SaveChanges();
+
 
             if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
             {
+                List<Subject> list = db.Subjects.Where(s => s.Name == subject.Name).ToList();
+                foreach (Subject s in list) {
+                    db.Subjects.Remove(s);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             else
             {
+                db.Subjects.Remove(subject);
+                db.SaveChanges();
                 return RedirectToAction("ProfileJobIndex", "JobExperiences");
             }
 
         }
 
+        //Shows a list of subjects on a Jobexperience
         public ActionResult SubjectList(int id)
         {
             ViewBag.subjectId = id;
@@ -175,14 +183,8 @@ namespace ITMatcherWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            //context.Parent.Where(e => e.ParentId == RequiredParentId).SelectMany(e => e.Child)
-            //var jobExpList = db.JobExperiences.Include(j => j.Subjects).Where(j => j.JobExperienceId == id);
-            //var subjectList = jobExpList.
-
             var subjectList = db.Subjects.Where(s => s.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
 
-            //var subjectList = db.Subjects.Where(s => s.JobExperiences== id).SelectMany(s => s.Subjects).ToList();
-            //var subjectList = db.Subjects.Where(t => t.SubjectId == id);
             return View(subjectList);
         }
 

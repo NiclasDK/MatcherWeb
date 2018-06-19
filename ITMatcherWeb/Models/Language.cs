@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITMatcherWeb.Models
@@ -9,7 +10,13 @@ namespace ITMatcherWeb.Models
         public int LanguageId { get; set; }
         public string Name { get; set; }
         public LanguageMastery Mastery { get; set; }
-        public virtual User ApplicationUser { get; set; }
+        //public virtual User ApplicationUser { get; set; }
+        public virtual ICollection<User> Users{ get; set; }
+
+        public Language()
+        {
+            this.Users = new HashSet<User>();
+        }
     }
 
     public enum LanguageMastery

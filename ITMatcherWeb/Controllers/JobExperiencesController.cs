@@ -18,14 +18,14 @@ namespace ITMatcherWeb.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //shows a list of all jobexperiences of a user.
         public ActionResult ProfileJobIndex() {
             var UserId = User.Identity.GetUserId();
             var jobExpList = db.JobExperiences.Where(j => j.ApplicationUser.Id == UserId).ToList();
-
             return View(jobExpList);
         }
 
-        // GET: JobExperiences
+        //
         public ActionResult Index()
         {
             if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
@@ -86,6 +86,7 @@ namespace ITMatcherWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin3, Admin2")]
+        //Adds jobexperience to other user from admin user.
         public ActionResult AddJobFromAdmin([Bind(Include = "JobExperienceId,Employer,DateOfEmployment,DateOfExit")] JobExperience jobExperience, string id) {
 
             jobExperience.ApplicationUser = db.Users.Where(x => x.Id == id).First();
@@ -146,9 +147,9 @@ namespace ITMatcherWeb.Controllers
             return View(jobExperience);
         }
 
-        // POST: JobExperiences/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        //Deletes a jobexperience based on id
         public ActionResult DeleteConfirmed(int id)
         {
             JobExperience jobExperience = db.JobExperiences.Find(id);

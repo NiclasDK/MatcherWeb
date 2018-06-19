@@ -43,6 +43,11 @@ namespace ITMatcherWeb.Models
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public User()
+        {
+            this.Languages = new HashSet<Language>();
+        }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

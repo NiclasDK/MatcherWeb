@@ -19,10 +19,12 @@ namespace ITMatcherWeb.Controllers
         
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Users
+        //Gets a list of all users in system
         [Authorize(Roles = "Admin1, Admin2, Admin3")]
         public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.SubjectDropDown = db.Subjects.Where(s => s.IsAccepted == true);
+
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.LastNameSortParm = sortOrder == "LastName" ? "lastname_desc" : "LastName";
@@ -32,21 +34,13 @@ namespace ITMatcherWeb.Controllers
             var users = from u in db.Users
                            select u;
 
+            //Finds users with subject defined by searchString
             if (!String.IsNullOrEmpty(searchString))
             {
-
-                //users = db.Users.SelectMany(u => u.JobExperiences).SelectMany(j => j.Subjects).Where(s=> s.Name==searchString));
-                /*users = db.Users.Where(u => u.JobExperiences
-                    .SelectMany(j => j.Subjects)
-                    .Any(d => d.Name == "Siemens"));*/
-
                 users = db.Users.Where(u => u.JobExperiences.Any(h =>  h.Subjects.Any(d => d.Name == searchString)));
-
-
-
-                //students = students.Where(s => s.LastName.Contains(searchString)|| s.FirstMidName.Contains(searchString));
             }
 
+            //Orders data based on click
             switch (sortOrder)
             {
                 case "name_desc":
@@ -78,7 +72,7 @@ namespace ITMatcherWeb.Controllers
             return View(users);
         }
 
-        // GET: Users/Details/5
+        // HTTPGET. Gets details on user with id=?
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -103,9 +97,9 @@ namespace ITMatcherWeb.Controllers
         [Authorize(Roles = "Admin3, Admin2")]
         public void ExtractToCsv(string id)
         {
+            //Code run in model-class
             User user = new User();
             user.ExtracttoCsv(id);
-
 
         }
 
@@ -131,6 +125,9 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Available,ActivelySeeking,ExpectedHourlySalary,Gender,DateOfBirth,FirstName,LastName,Email,PhoneNumber, Zipcode, City")] User user, string id)
         {
+
+            //Explicitly defined variables to be set. ASPNETUSER contain more than the fields below,
+            // without explicit variables, the others would be set as well.
             if (ModelState.IsValid)
             {
                 var existingUser = db.Users.SingleOrDefault(u => u.Id == id);
@@ -184,6 +181,8 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+
+            //Deletes from bottom to top. Other way would create error.
             User User = db.Users.Find(id);
             if (User.JobExperiences.Any()) { 
             foreach (JobExperience j in User.JobExperiences.ToList()) {
@@ -198,6 +197,9 @@ namespace ITMatcherWeb.Controllers
             db.Users.Remove(User);
 
             db.SaveChanges();
+
+            //Logging out after deletion. 
+            //Could add a check if the deleted users id is the same as the deletors, if not, logout is not necessary
             return RedirectToAction("LogOffGet", "Account");
             //return RedirectToAction("Index");
         }

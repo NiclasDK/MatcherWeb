@@ -84,9 +84,14 @@ namespace ITMatcherWeb.DataContexts
             .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<User>()
-            .HasMany(u => u.Languages)
-            .WithRequired(e => e.ApplicationUser)
-            .WillCascadeOnDelete(true);
+            .HasMany<Models.Language>(s => s.Languages)
+            .WithMany(e => e.Users)
+            .Map(cs =>
+            {
+                cs.MapLeftKey("Id");
+                cs.MapRightKey("LanguageId");
+                cs.ToTable("UserLanguage");
+            });
 
             modelBuilder.Entity<User>()
             .HasMany(u => u.Certificates)

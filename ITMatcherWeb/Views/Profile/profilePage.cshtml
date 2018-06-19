@@ -23,9 +23,13 @@
             <ul class="sidebar-nav">
                 <!--<li><a href="LogInbtn" data-toggle="modal" data-target="#myModal">log in</a></li>-->
                 <li><a href="">Profile</a></li>
+                
+                @if (!ViewBag.IsOfAdminType)
+                {
                 <li>
                     @Html.ActionLink("Job experience", "ProfileJobIndex", "JobExperiences", new { @class = "elements" }, null)
                 </li>
+                }
                 <li>
                     @Html.ActionLink("Change password", "ChangePassword", "Manage", new { @class = "elements" }, null)
                 </li>
@@ -67,28 +71,29 @@
                         <div>
                             <h1>Profile</h1>
                             <hr />
-
-                            <h3>Ealier jobs</h3>
-                            <hr />
-                            @if (Model.Any())
+                            @if (!ViewBag.IsOfAdminType)
                             {
-                                foreach (var i in Model)
+                                <h3>Previous jobs</h3>
+                                <hr />
+                                if (Model.Any())
                                 {
-                                    if (i.JobExperiences.Any() == false)
+                                    foreach (var i in Model)
                                     {
-                                        <p>No job experiences currently added - add jobexp. through "Job experiences" in menu </p>
-                                    }
-                                    else
-                                    {
-                                        foreach (var j in i.JobExperiences)
+                                        if (i.JobExperiences.Any() == false)
                                         {
-                                            <dl>
+                                            <p>No job experiences currently added - add jobexp. through "Job experiences" in menu </p>
+                                        }
+                                        else
+                                        {
+                                            foreach (var j in i.JobExperiences)
+                                            {
+                                                <dl>
                                                 <dt>
                                                     @j.Employer: period: @j.DateOfEmployment - @j.DateOfExit
                                                 </dt>
+                                                <dt> </dt>
                                                 <dt>
-                                                    Titles
-
+                                                Titles
                                                 </dt>
                                                 @if (j.Titles.Any() == false)
                                                 {
@@ -98,23 +103,23 @@
                                                 {
                                                     foreach (var t in j.Titles)
                                                     {
-                                                        <dd>@t.TitleName</dd>
+                                                         <dd>@t.TitleName</dd>
                                                     }
                                                 }
                                                 <dt>
                                                     Subjects
                                                 </dt>
-                                                @if (j.Subjects.Any() == false)
-                                                {
-                                                    <dd>No subjects added - Add subject through "Job Experiences" in menu, then add subject</dd>
-                                                }
-                                                else
-                                                {
-                                                    foreach (var s in j.Subjects)
+                                                    @if (j.Subjects.Any() == false)
                                                     {
-                                                        <dd>@s.Name</dd>
+                                                        <dd>No subjects added - Add subject through "Job Experiences" in menu, then add subject</dd>
                                                     }
-                                                }
+                                                    else
+                                                    {
+                                                        foreach (var s in j.Subjects)
+                                                        {
+                                                                                <dd>@s.Name</dd>
+                                                        }
+                                                    }
                                                 <dt>
                                                     Environments
                                                 </dt>
@@ -129,11 +134,19 @@
                                                         <dd>@e.EnvironmentName</dd>
                                                     }
                                                 }
-                                            </dl><hr />
+                                                        </dl><hr />
+                                            }
                                         }
                                     }
                                 }
-                            }
+                             }
+                        @if (ViewBag.IsOfAdminType)
+                        {
+                            <b>Administer users, subjects and environments in the menu</b>
+                            <p></p>
+                            <p>- Make a new subject available by adding it in the subject list.</p>
+                            <p>- Extract data from users by going to the consultant list</p>
+                        }
                         </div>
                     </div>
                 </div>

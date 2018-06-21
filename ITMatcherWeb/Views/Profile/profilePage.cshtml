@@ -21,9 +21,10 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <!--<li><a href="LogInbtn" data-toggle="modal" data-target="#myModal">log in</a></li>-->
                 <li><a href="">Profile</a></li>
                 
+
+                <!--Buttons for profile page. Shown based on profile type-->
                 @if (!ViewBag.IsOfAdminType)
                 {
                 <li>
@@ -63,6 +64,7 @@
         </div>
 
         <!-- Page content -->
+        <!--Shows info about job experiences for regular users. Admins get another text-->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -88,9 +90,11 @@
                                             foreach (var j in i.JobExperiences)
                                             {
                                                 <dl>
-                                                <dt>
-                                                    @j.Employer: period: @j.DateOfEmployment - @j.DateOfExit
-                                                </dt>
+                                                    <dt>
+                                                        
+                                                        @j.Employer: period: @j.DateOfEmployment.Value.ToShortDateString() - @j.DateOfExit.Value.ToShortDateString()
+                                                    </dt>
+
                                                 <dt> </dt>
                                                 <dt>
                                                 Titles
@@ -140,6 +144,7 @@
                                     }
                                 }
                              }
+                        <!--Admin text-->
                         @if (ViewBag.IsOfAdminType)
                         {
                             <b>Administer users, subjects and environments in the menu</b>

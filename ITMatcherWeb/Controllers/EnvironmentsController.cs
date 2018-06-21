@@ -17,6 +17,7 @@ namespace ITMatcherWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Environments
+        [Authorize(Roles = "Admin1, Admin2, Admin3")]
         public ActionResult Index()
         {
 
@@ -26,7 +27,7 @@ namespace ITMatcherWeb.Controllers
 
         public ActionResult EnvironmentList(int id)
         {
-            ViewBag.environmentId = id;
+            ViewBag.jobExperienceId = id;
 
             if (id.ToString() == "")
             {
@@ -55,9 +56,11 @@ namespace ITMatcherWeb.Controllers
         }
 
         // GET: Environments/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.Environments = db.Environments;
+            ViewBag.jobExpId = id;
+            ViewBag.Environments = db.Environments.GroupBy(e => e.EnvironmentName).Select(e => e.FirstOrDefault()).Where(e => e.IsAccepted == true).ToList();
+            //ViewBag.Environments = db.Environments;
 
             return View();
         }
@@ -70,19 +73,32 @@ namespace ITMatcherWeb.Controllers
         // POST: Environments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment, int id)
         {
-            //environment.JobExperienceId = id;
-
-            JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
-            jobExp.Environments.Add(environment);
-
 
             if (ModelState.IsValid)
             {
-                db.Environments.Add(environment);
+                JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+                jobExp.Environments.Add(environment);
+                db.SaveChanges();
+                return RedirectToAction("EnvironmentList/" + id);
+            }
+
+            return View(environment);
+        }*/
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEnvToJobexp(Models.Environment environment, int id)
+        {
+            Models.Environment environmentUsed = db.Environments.FirstOrDefault(e => e.EnvironmentName == environment.EnvironmentName);
+
+            if (ModelState.IsValid)
+            {
+                JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+                jobExp.Environments.Add(environmentUsed);
                 db.SaveChanges();
                 return RedirectToAction("EnvironmentList/" + id);
             }
@@ -92,6 +108,7 @@ namespace ITMatcherWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin3, Admin2, Admin1")]
         public ActionResult AdminEnvCreation([Bind(Include = "EnvironmentId,EnvironmentName, IsAccepted")] Models.Environment environment)
         {
 
@@ -172,7 +189,7 @@ namespace ITMatcherWeb.Controllers
             else { 
                 db.Environments.Remove(environment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ProfileJobIndex", "JobExperiences");
             }
         }
 

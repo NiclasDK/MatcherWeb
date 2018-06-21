@@ -7,10 +7,11 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm("AddTitleToJobexp", "Titles", new { id = ViewBag.jobExpId }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Title</h4>
         <hr />

@@ -47,7 +47,8 @@ namespace ITMatcherWeb.Controllers
         // GET: Subjects/Create
         public ActionResult Create()
         {
-            ViewBag.SubjectDropDown = db.Subjects.Where(s=> s.IsAccepted==true);
+            ViewBag.SubjectDropDown = db.Subjects.GroupBy(s => s.Name).Select(s => s.FirstOrDefault()).Where(s => s.IsAccepted == true).ToList();
+            //ViewBag.SubjectDropDown = db.Subjects.Where(s=> s.IsAccepted==true);
 
             return View();
         }
@@ -66,17 +67,10 @@ namespace ITMatcherWeb.Controllers
         public ActionResult Create([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill")] Subject subject, int id)
         {
 
-            //var subjectList = db.Subjects.Where(s => s.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
-            //var jobExpList = db.JobExperiences.Include(j => j.Subjects).Where(j => j.JobExperienceId == id).Single();
-            JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
-
-            jobExp.Subjects.Add(subject);
-            //subject.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
-
-
             if (ModelState.IsValid)
             {
-                db.Subjects.Add(subject);
+                JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+                jobExp.Subjects.Add(subject);
                 db.SaveChanges();
                 return RedirectToAction("SubjectList/"+id);
             }

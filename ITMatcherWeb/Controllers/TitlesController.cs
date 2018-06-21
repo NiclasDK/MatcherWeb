@@ -52,9 +52,10 @@ namespace ITMatcherWeb.Controllers
         }
 
         // GET: Titles/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.TitleDropDown = db.Titles.Where(t => t.IsAccepted == true);
+            ViewBag.jobExpId = id;
+            ViewBag.TitleDropDown = db.Titles.GroupBy(t => t.TitleName).Select(t => t.FirstOrDefault()).Where(t => t.IsAccepted == true).ToList();
 
             return View();
         }
@@ -84,23 +85,34 @@ namespace ITMatcherWeb.Controllers
         // POST: Titles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TitleId,TitleName,IsAccepted")] Title title, int id)
         {
-            //title.JobExperienceId = id;
-            JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
-
-            jobExp.Titles.Add(title);
-
-            //title.JobExperiences.Where(j => j.JobExperienceId == id).First();
-
 
             if (ModelState.IsValid)
             {
-                db.Titles.Add(title);
+                JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+                jobExp.Titles.Add(title);
                 db.SaveChanges();
                 return RedirectToAction("TitlesList/"+id);
+            }
+
+            return View(title);
+        }*/
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTitleToJobexp(Title title, int id)
+        {
+            Title TitleUsed = db.Titles.FirstOrDefault(t => t.TitleName == title.TitleName);
+
+            if (ModelState.IsValid)
+            {
+                JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+                jobExp.Titles.Add(TitleUsed);
+                db.SaveChanges();
+                return RedirectToAction("TitlesList/" + id);
             }
 
             return View(title);

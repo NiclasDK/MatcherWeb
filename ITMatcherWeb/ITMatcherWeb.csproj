@@ -232,6 +232,10 @@
     <Compile Include="DataContexts\IdentityMigrations\201806191623298_Removed unused variables in user.Designer.cs">
       <DependentUpon>201806191623298_Removed unused variables in user.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201806201144356_many to many user language.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201806201144356_many to many user language.Designer.cs">
+      <DependentUpon>201806201144356_many to many user language.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +254,7 @@
     <Compile Include="Models\JobExperience.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Title.cs" />
+    <Compile Include="Models\UserLanguages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -266,6 +271,7 @@
     <Content Include="Content\Images\Karts.jpg" />
     <Content Include="Content\Images\Kid.jpg" />
     <Content Include="Content\profilePageSheet.css" />
+    <Content Include="Content\W3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201806191623298_Removed unused variables in user.resx">
       <DependentUpon>201806191623298_Removed unused variables in user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201806201144356_many to many user language.resx">
+      <DependentUpon>201806201144356_many to many user language.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

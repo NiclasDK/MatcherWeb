@@ -9,14 +9,7 @@ namespace ITMatcherWeb.Models
         [Key]
         public int LanguageId { get; set; }
         public string Name { get; set; }
-        public LanguageMastery Mastery { get; set; }
-        //public virtual User ApplicationUser { get; set; }
-        public virtual ICollection<User> Users{ get; set; }
-
-        public Language()
-        {
-            this.Users = new HashSet<User>();
-        }
+        public virtual ICollection<UserLanguages> Users{ get; set; }
     }
 
     public enum LanguageMastery

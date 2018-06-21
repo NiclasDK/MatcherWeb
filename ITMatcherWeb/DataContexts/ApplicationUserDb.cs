@@ -83,7 +83,20 @@ namespace ITMatcherWeb.DataContexts
             .WithRequired(c => c.ApplicationUser)
             .WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<UserLanguages>()
+                .HasKey(ul => new { ul.LanguageId, ul.UserId });
+
+            modelBuilder.Entity<UserLanguages>()
+                .HasRequired(ul => ul.User)
+                .WithMany(ul => ul.Languages)
+                .HasForeignKey(pl => pl.UserId);
+
+            modelBuilder.Entity<UserLanguages>()
+                .HasRequired(ul => ul.Language)
+                .WithMany(ul => ul.Users)
+                .HasForeignKey(ul => ul.LanguageId);
+
+            /*modelBuilder.Entity<User>()
             .HasMany<Models.Language>(s => s.Languages)
             .WithMany(e => e.Users)
             .Map(cs =>
@@ -91,7 +104,7 @@ namespace ITMatcherWeb.DataContexts
                 cs.MapLeftKey("Id");
                 cs.MapRightKey("LanguageId");
                 cs.ToTable("UserLanguage");
-            });
+            });*/
 
             modelBuilder.Entity<User>()
             .HasMany(u => u.Certificates)

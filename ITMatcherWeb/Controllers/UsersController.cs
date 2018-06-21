@@ -182,9 +182,9 @@ namespace ITMatcherWeb.Controllers
         {
 
             //Deletes from bottom to top. Other way would create error.
-            User User = db.Users.Find(id);
-            if (User.JobExperiences.Any()) { 
-            foreach (JobExperience j in User.JobExperiences.ToList()) {
+            User UserToDelete = db.Users.Find(id);
+            if (UserToDelete.JobExperiences.Any()) { 
+            foreach (JobExperience j in UserToDelete.JobExperiences.ToList()) {
                     if (j.Environments.Any()) { 
                         foreach (Models.Environment e in j.Environments.ToList()) {
                             db.Environments.Remove(e);
@@ -193,13 +193,23 @@ namespace ITMatcherWeb.Controllers
                     db.JobExperiences.Remove(j);
                 }
             }
-            db.Users.Remove(User);
+            db.Users.Remove(UserToDelete);
 
             db.SaveChanges();
 
+            var loggedInUserId = User.Identity.GetUserId();
+
+            if (loggedInUserId == id)
+            {
+                return RedirectToAction("LogOffGet", "Account");
+            }
+            else {
+                return RedirectToAction("Index");
+            }
+
+
             //Logging out after deletion. 
             //Could add a check if the deleted users id is the same as the deletors, if not, logout is not necessary
-            return RedirectToAction("LogOffGet", "Account");
             //return RedirectToAction("Index");
         }
 

@@ -68,7 +68,7 @@
   <Class Name="ITMatcherWeb.Models.User">
     <Position X="17.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEACCAAREACIAAAAAAJAAAAQAAAAAgAAAUAAAFg=</HashCode>
+      <HashCode>AAACAEACCAAREACAAAAAAAJAAAAQAAAAAgAAAEAAAFg=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,23 +101,11 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ITMatcherWeb.Models.Language">
-    <Position X="14.5" Y="7" Width="1.5" />
-    <AssociationLine Name="ApplicationUser" Type="ITMatcherWeb.Models.User" FixedFromPoint="true">
-      <Path>
-        <Point X="16" Y="7.312" />
-        <Point X="17.25" Y="7.312" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-0.037" Y="0.104" Height="0.182" Width="1.208" />
-      </MemberNameLabel>
-    </AssociationLine>
+    <Position X="15.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAAAQAQgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAQAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Language.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ApplicationUser" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ITMatcherWeb.Models.Subject">
     <Position X="13.25" Y="4.25" Width="1.5" />
@@ -146,6 +134,26 @@
       <Property Name="JobExperiences" />
     </ShowAsCollectionAssociation>
   </Class>
+  <Class Name="ITMatcherWeb.Models.UserLanguages">
+    <Position X="12.5" Y="7" Width="1.5" />
+    <AssociationLine Name="User" Type="ITMatcherWeb.Models.User" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.688" Y="7" />
+        <Point X="13.688" Y="6.779" />
+        <Point X="17.156" Y="6.779" />
+        <Point X="17.156" Y="7.188" />
+        <Point X="17.25" Y="7.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAACAAAAAAAAABAAAgAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserLanguages.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Language" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
   <Enum Name="ITMatcherWeb.Models.EducationLevel" Collapsed="true">
     <Position X="20" Y="3.75" Width="1.5" />
     <TypeIdentifier>
@@ -154,14 +162,14 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="ITMatcherWeb.Models.Gender" Collapsed="true">
-    <Position X="17.25" Y="7.75" Width="1.5" />
+    <Position X="17.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ITMatcherWeb.Models.LanguageMastery" Collapsed="true">
-    <Position X="13" Y="7" Width="1.25" />
+    <Position X="11.75" Y="6.25" Width="1.25" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAE=</HashCode>
       <FileName>Models\Language.cs</FileName>

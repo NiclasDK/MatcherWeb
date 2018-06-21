@@ -33,18 +33,13 @@ namespace ITMatcherWeb.Models
         [Display(Name = "Last name")]
         public string LastName { get; set; }
         public virtual ICollection<JobExperience> JobExperiences { get; set; }
-        public virtual ICollection<Language> Languages { get; set; }
+        public virtual ICollection<UserLanguages> Languages { get; set; }
         public virtual ICollection<Certificate> Certificates { get; set; }
         public virtual ICollection<Education> Educations { get; set; }
         public virtual ICollection<Clause> Clauses { get; set; }
         public virtual ICollection<Business> Businesses { get; set; }
 
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        public User()
-        {
-            this.Languages = new HashSet<Language>();
-        }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

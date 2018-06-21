@@ -122,6 +122,8 @@ namespace ITMatcherWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SubjectId,Name,StartTime,EndTime,PercievedLevelOfSkill, IsAccepted")] Subject subject)
         {
+
+
             if (ModelState.IsValid)
             {
                 db.Entry(subject).State = EntityState.Modified;
@@ -155,7 +157,7 @@ namespace ITMatcherWeb.Controllers
             Subject subject = db.Subjects.Find(id);
 
 
-            if (User.IsInRole("Admin1") || User.IsInRole("Admin2") || User.IsInRole("Admin3"))
+            if (User.IsInRole("Admin3"))
             {
                 List<Subject> list = db.Subjects.Where(s => s.Name == subject.Name).ToList();
                 foreach (Subject s in list) {

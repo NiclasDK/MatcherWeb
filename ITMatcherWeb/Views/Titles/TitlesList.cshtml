@@ -17,9 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.TitleName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAccepted)
-        </th>
+
         <th></th>
     </tr>
 
@@ -28,9 +26,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.TitleName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAccepted)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.TitleId }) |

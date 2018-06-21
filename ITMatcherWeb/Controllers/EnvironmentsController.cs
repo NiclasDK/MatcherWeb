@@ -30,9 +30,9 @@ namespace ITMatcherWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var EnvironmentList = db.Environments.Where(e => e.EnvironmentId == id).SelectMany(c => c.JobExperiences).ToList();
 
-            //var EnvironmentList = db.Environments.Where(s => s. == id).ToList();
+            var EnvironmentList = db.Environments.Where(e => e.JobExperiences.Any(j => j.JobExperienceId == id)).ToList();
+
             return View(EnvironmentList);
         }
 
@@ -73,7 +73,9 @@ namespace ITMatcherWeb.Controllers
         public ActionResult Create([Bind(Include = "EnvironmentId,EnvironmentName")] Models.Environment environment, int id)
         {
             //environment.JobExperienceId = id;
-            environment.JobExperiences.Where(j => j.JobExperienceId == id).First();
+
+            JobExperience jobExp = db.JobExperiences.FirstOrDefault(j => j.JobExperienceId == id);
+            jobExp.Environments.Add(environment);
 
 
             if (ModelState.IsValid)

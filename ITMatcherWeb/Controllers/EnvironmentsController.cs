@@ -19,7 +19,9 @@ namespace ITMatcherWeb.Controllers
         // GET: Environments
         public ActionResult Index()
         {
-            return View(db.Environments.ToList());
+
+            return View(db.Environments.GroupBy(e => e.EnvironmentName).Select(e => e.FirstOrDefault()).ToList());
+
         }
 
         public ActionResult EnvironmentList(int id)
@@ -156,9 +158,22 @@ namespace ITMatcherWeb.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Models.Environment environment = db.Environments.Find(id);
-            db.Environments.Remove(environment);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+            if (User.IsInRole("Admin3"))
+            {
+                List<Models.Environment> list = db.Environments.Where(e => e.EnvironmentName == environment.EnvironmentName).ToList();
+                foreach (Models.Environment e in list)
+                {
+                    db.Environments.Remove(e);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            else { 
+                db.Environments.Remove(environment);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -19,12 +19,12 @@ namespace ITMatcherWeb.Controllers
             /*Project Managers*/
             if ((from u in db.Users
                  from j in u.JobExperiences
-                 from s in j.Subjects
-                 select s.Name == "Project manager").Any())
+                 from t in j.Titles
+                 select t.TitleName == "Project manager").Any())
             {
 
                 ViewBag.numberOfProjectMangers = db.Users
-                .Where(u => u.JobExperiences.Any(j => j.Subjects.Any(s => s.Name == "Project manager")))
+                .Where(u => u.JobExperiences.Any(j => j.Titles.Any(t => t.TitleName == "Project manager")))
                 .Count();
 
             }
@@ -35,11 +35,11 @@ namespace ITMatcherWeb.Controllers
             /*Test-managere*/
             if ((from u in db.Users
                  from j in u.JobExperiences
-                 from s in j.Subjects
-                 select s.Name == "Test manager").Any())
+                 from t in j.Titles
+                 select t.TitleName== "Test manager").Any())
             {
                 ViewBag.numberOfTestmanagers = db.Users
-                .Where(u => u.JobExperiences.Any(j => j.Subjects.Any(s => s.Name == "Test manager")))
+                .Where(u => u.JobExperiences.Any(j => j.Titles.Any(t => t.TitleName == "Test manager")))
                 .Count();
             }
             else
@@ -49,11 +49,11 @@ namespace ITMatcherWeb.Controllers
             /*Systemudviklere*/
             if ((from u in db.Users
                  from j in u.JobExperiences
-                 from s in j.Subjects
-                 select s.Name == "System developer").Any())
+                 from t in j.Titles
+                 select t.TitleName == "System developer").Any())
             {
                 ViewBag.numberOfSystemDev = db.Users
-                .Where(u => u.JobExperiences.Any(j => j.Subjects.Any(s => s.Name == "System developer")))
+                .Where(u => u.JobExperiences.Any(j => j.Titles.Any(t => t.TitleName == "System developer")))
                 .Count();
             }
             else
@@ -65,11 +65,11 @@ namespace ITMatcherWeb.Controllers
 
             if ((from u in db.Users
                  from j in u.JobExperiences
-                 from s in j.Subjects
-                 select s.Name == "Tester").Any())
+                 from t in j.Titles
+                 select t.TitleName == "Tester").Any())
             {
                 ViewBag.numberOfTesters = db.Users
-                .Where(u => u.JobExperiences.Any(j => j.Subjects.Any(s => s.Name == "Tester")))
+                .Where(u => u.JobExperiences.Any(j => j.Titles.Any(t => t.TitleName == "Tester")))
                 .Count();
 
             }

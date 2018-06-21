@@ -17,9 +17,10 @@ namespace ITMatcherWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Titles
+
         public ActionResult Index()
         {
-            return View(db.Titles.ToList());
+            return View(db.Titles.GroupBy(t => t.TitleName).Select(t => t.FirstOrDefault()).ToList());
         }
 
         public ActionResult TitlesList(int id)
@@ -158,9 +159,21 @@ namespace ITMatcherWeb.Controllers
         {
             Title title = db.Titles.Find(id);
 
-            db.Titles.Remove(title);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (User.IsInRole("Admin3"))
+            {
+                List<Title> list = db.Titles.Where(t => t.TitleName == title.TitleName).ToList();
+                foreach (Title t in list)
+                {
+                    db.Titles.Remove(t);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            else { 
+                db.Titles.Remove(title);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
